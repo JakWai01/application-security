@@ -1,0 +1,26 @@
+commit f01d6ed4e2483060c5dc665baaae2f3686f11737
+Merge: c1b2069 11555ab
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Sun Feb 6 23:51:34 2022 +0100
+
+    Merge pull request #1 from pojntfx/main
+    
+    build: Add deliverance
+
+commit 11555abba5d816364b398ad2ef2df177af1973ae
+Author: Felix Pojtinger <felix@pojtinger.com>
+Date:   Sun Feb 6 23:11:29 2022 +0100
+
+    build: Add deliverance
+
+commit c1b20695570cc20ab66d5759c89e66b0daa137a1
+Author: JakWai01 <jakob.waibel@web.de>
+Date:   Sun Feb 6 22:19:28 2022 +0100
+
+    feat: Add first draft
+
+commit 8161d44a674d6e9c673d6c6ba2b05c1f34417ff6
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Sun Feb 6 22:18:21 2022 +0100
+
+    Initial commit
