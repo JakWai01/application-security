@@ -5,92 +5,91 @@ Jakob Waibel
 -   1 Introduction
     -   1.1 Contributing
     -   1.2 License
--   2 Aufgabe 1: Grundlagen und Schutzziele (1+3+1+1+2 = 8 Punkte)
-    -   2.1 Was ist sichere Software?
-    -   2.2 Was ist IT-Sicherheit?
-    -   2.3 Schutzziele/Sicherheitskriterien
-    -   2.4 Sicherheitsaspekte
-    -   2.5 Warum Sicherheit?
-    -   2.6 Sicherheitsbegriffe
-    -   2.7 Erforschung von Schwachstellen
-    -   2.8 Wo kann man sich über Schwachstellen informieren?
-    -   2.9 Wie bestimmt man wie scherwiegend eine Schwachstelle ist?
-    -   2.10 Spannungsfeld von IT-Sicherheit
-    -   2.11 Fazit
--   3 Aufgabe 2: Thema sicherer Entwurf (3+1 = 4 Punkte)
-    -   3.1 Entwurfsprinzipien
-        -   3.1.1 Minimierung der Angriffsfläche
-        -   3.1.2 Sichere Vorbelegung
-        -   3.1.3 Prinzip des kleinsten Privilegs
-        -   3.1.4 Prinzip der mehrstufigen Verteidigung
-        -   3.1.5 Sicheres Verhalten bei Fehlern bzw. Ausnahmen
-        -   3.1.6 Behandle externe Systeme als unsicher
-        -   3.1.7 Pflichtentrennung
-        -   3.1.8 Verlasse Dich nicht auf Sicherheit durch
+    -   1.3 Was ist sichere Software?
+    -   1.4 Was ist IT-Sicherheit?
+    -   1.5 Schutzziele/Sicherheitskriterien
+    -   1.6 Sicherheitsaspekte
+    -   1.7 Warum Sicherheit?
+    -   1.8 Sicherheitsbegriffe
+    -   1.9 Erforschung von Schwachstellen
+    -   1.10 Wo kann man sich über Schwachstellen informieren?
+    -   1.11 Wie bestimmt man wie scherwiegend eine Schwachstelle ist?
+    -   1.12 Spannungsfeld von IT-Sicherheit
+    -   1.13 Fazit
+-   2 Aufgabe 2: Thema sicherer Entwurf (3+1 = 4 Punkte)
+    -   2.1 Entwurfsprinzipien
+        -   2.1.1 Minimierung der Angriffsfläche
+        -   2.1.2 Sichere Vorbelegung
+        -   2.1.3 Prinzip des kleinsten Privilegs
+        -   2.1.4 Prinzip der mehrstufigen Verteidigung
+        -   2.1.5 Sicheres Verhalten bei Fehlern bzw. Ausnahmen
+        -   2.1.6 Behandle externe Systeme als unsicher
+        -   2.1.7 Pflichtentrennung
+        -   2.1.8 Verlasse Dich nicht auf Sicherheit durch
             Verschleierung
-        -   3.1.9 Einfachheit/KISS
-        -   3.1.10 Behebe Sicherheitslöcher richtig
-        -   3.1.11 Eingabevalidierung/Ausgabekodierung
-        -   3.1.12 Sichere das schwächste Glied
-        -   3.1.13 Ökonomie des Mechanismus
-        -   3.1.14 Vollständige Vermittlung
-        -   3.1.15 Kleinster gemeinsamer Mechanismus
-        -   3.1.16 Psychologische Akzeptanz
-        -   3.1.17 Zurückhaltung bei Vertrauen
-        -   3.1.18 Schutz der Privatssphäre
-        -   3.1.19 Offener Entwurf
-    -   3.2 Stride Flussdiagramm - Entwurfsprinzipien
-    -   3.3 Anwendung des Beispiels auf STRIDE
--   4 Aufgabe 3: Penetration Test: Buffer Overflow (10 Punkte)
-    -   4.1 Was ist ein Buffer Overflow?
-    -   4.2 Wie findet man einen Buffer Overflow?
-    -   4.3 Verwendung von Windows Debuggern
-    -   4.4 Verhalten des Stacks bei einem Buffer Overflow
-    -   4.5 Vorgehen
-        -   4.5.1 Fuzzing/Taking Control of EIP
-        -   4.5.2 Bad Characters
-        -   4.5.3 Redirect Execution
-        -   4.5.4 Schadcode generieren
-        -   4.5.5 Resuliterendes SL-Mail Python-Skript
--   5 Aufgabe 4: Thema Sicherheit von Web-Anwendungen (4+4+3+2 = 13
+        -   2.1.9 Einfachheit/KISS
+        -   2.1.10 Behebe Sicherheitslöcher richtig
+        -   2.1.11 Eingabevalidierung/Ausgabekodierung
+        -   2.1.12 Sichere das schwächste Glied
+        -   2.1.13 Ökonomie des Mechanismus
+        -   2.1.14 Vollständige Vermittlung
+        -   2.1.15 Kleinster gemeinsamer Mechanismus
+        -   2.1.16 Psychologische Akzeptanz
+        -   2.1.17 Zurückhaltung bei Vertrauen
+        -   2.1.18 Schutz der Privatssphäre
+        -   2.1.19 Offener Entwurf
+    -   2.2 Stride Flussdiagramm - Entwurfsprinzipien
+    -   2.3 Anwendung des Beispiels auf STRIDE
+-   3 Aufgabe 3: Penetration Test: Buffer Overflow (10 Punkte)
+    -   3.1 Was ist ein Buffer Overflow?
+    -   3.2 Wie findet man einen Buffer Overflow?
+    -   3.3 Verwendung von Windows Debuggern
+    -   3.4 Verhalten des Stacks bei einem Buffer Overflow
+    -   3.5 Vorgehen
+        -   3.5.1 Fuzzing/Taking Control of EIP
+        -   3.5.2 Bad Characters
+        -   3.5.3 Redirect Execution
+        -   3.5.4 Schadcode generieren
+        -   3.5.5 Resuliterendes SL-Mail Python-Skript
+-   4 Aufgabe 4: Thema Sicherheit von Web-Anwendungen (4+4+3+2 = 13
     Punkte)
-    -   5.1 Evaluation verschiedener Schutzmechanismen
-    -   5.2 Angriffsziele
-    -   5.3 OWASP Top 10 Übersicht
-    -   5.4 A1: Fehlerhafte Berechtigungsprüfung
-    -   5.5 A2: Fehlerhafte Kryptographie
-    -   5.6 A3: Injektionen
-        -   5.6.1 SQL-Injection
-        -   5.6.2 Blind SQL-Injection
-        -   5.6.3 SQL-Injection-Demos
-        -   5.6.4 DVWA
-        -   5.6.5 Gegenmaßnahmen
-        -   5.6.6 Command Injection
-        -   5.6.7 Cross-Site Scripting (XSS)
-        -   5.6.8 Gegenmaßnahmen
-        -   5.6.9 Cross-Site-Request-Forgery
-    -   5.7 A4: Unsicherer Entwurf
-        -   5.7.1 Gegenmaßnahmen
-    -   5.8 A5: Fehlerhafte Sicherheitskonfiguration
-        -   5.8.1 Gegenmaßnahmen
-        -   5.8.2 XML External Entities (XXE)
-    -   5.9 A6: Nicht aktuelle Komponenten mit Schwachstellen
-    -   5.10 A7: Fehlerhafte Identifizierung und Authentifizierung
-        -   5.10.1 Fehlerhaftes Session-Management
-    -   5.11 A8: Fehlerhafte Software und Datenintegrität
-        -   5.11.1 Gegenmaßnahmen
-        -   5.11.2 Unsichere Deserialisierung
-    -   5.12 A9: Fehlerhaftes Logging und Monitoring
-        -   5.12.1 Gegenmaßnahmen
-    -   5.13 A10: Server-Side Request Forgery (SSRF)
-        -   5.13.1 Gegenmaßnahmen
-        -   5.13.2 File Inclusion
--   6 Aufgabe 5: Sichere Programmierung (secure coding) (10 Punkte)
-    -   6.1 Implementierung einer Datenstruktur in Java
-    -   6.2 Secure Coding
--   7 Aufgabe 6: Authentisierung/Authentifizierung (3+2 = 5 Punkte)
-    -   7.1 Grundlagen
-    -   7.2 OAuth2
+    -   4.1 Evaluation verschiedener Schutzmechanismen
+    -   4.2 Angriffsziele
+    -   4.3 OWASP Top 10 Übersicht
+    -   4.4 A1: Fehlerhafte Berechtigungsprüfung
+    -   4.5 A2: Fehlerhafte Kryptographie
+    -   4.6 A3: Injektionen
+        -   4.6.1 SQL-Injection
+        -   4.6.2 Blind SQL-Injection
+        -   4.6.3 SQL-Injection-Demos
+        -   4.6.4 DVWA
+        -   4.6.5 Gegenmaßnahmen
+        -   4.6.6 Command Injection
+        -   4.6.7 Cross-Site Scripting (XSS)
+        -   4.6.8 Gegenmaßnahmen
+        -   4.6.9 Cross-Site-Request-Forgery
+    -   4.7 A4: Unsicherer Entwurf
+        -   4.7.1 Gegenmaßnahmen
+    -   4.8 A5: Fehlerhafte Sicherheitskonfiguration
+        -   4.8.1 Gegenmaßnahmen
+        -   4.8.2 XML External Entities (XXE)
+    -   4.9 A6: Nicht aktuelle Komponenten mit Schwachstellen
+    -   4.10 A7: Fehlerhafte Identifizierung und Authentifizierung
+        -   4.10.1 Fehlerhaftes Session-Management
+    -   4.11 A8: Fehlerhafte Software und Datenintegrität
+        -   4.11.1 Gegenmaßnahmen
+        -   4.11.2 Unsichere Deserialisierung
+    -   4.12 A9: Fehlerhaftes Logging und Monitoring
+        -   4.12.1 Gegenmaßnahmen
+    -   4.13 A10: Server-Side Request Forgery (SSRF)
+        -   4.13.1 Gegenmaßnahmen
+        -   4.13.2 File Inclusion
+-   5 Aufgabe 5: Sichere Programmierung (secure coding) (10 Punkte)
+    -   5.1 Implementierung einer Datenstruktur in Java
+    -   5.2 Secure Coding
+-   6 Aufgabe 6: Authentisierung/Authentifizierung (3+2 = 5 Punkte)
+    -   6.1 Grundlagen
+    -   6.2 OAuth2
 
 Introduction
 
@@ -113,8 +112,6 @@ License
 Uni App Security Notes (c) 2022 Jakob Waibel and contributors
 
 SPDX-License-Identifier: AGPL-3.0
-
-Aufgabe 1: Grundlagen und Schutzziele (1+3+1+1+2 = 8 Punkte)
 
 Was ist sichere Software?
 
@@ -2022,11 +2019,36 @@ Was geschieht, wenn Sie folgende Werte verwenden:
     current = 50
     extra = Integer.MAX_VALUE:
 
+Nehmen wir an, wir verwenden foldende Implementierung von
+setElementToExtraPosition():
+
+    if (extra < 0 || current + extra > MAX) {
+        throw new IllegalArgumentException();
+    }
+    data.set(current + extra, element);
+
+Wenn wir nun current = 50 und extra = Integer.MAX_VALUE setzen, stellen
+wir fest, dass dies in unserer Implementierung zu einer
+IndexOutOfBoundsException führt. Das liegt daran, dass das Problem erst
+Auftritt, wenn wir current+extra addieren. current+extra overflowt in
+den negativen Bereich. Das wird aber noch nicht geprüft. Da
+current+extra in den negativen Bereich overflowt, wird der check
+current+extra > MAX auch zu false evaluiert, was dazu führt, dass die
+data.set() Methode den negativen Wert von current+extra bekommt und
+daher die IndexOutOfBoundsException() wirft.
+
 Was würde geschehen, wenn Sie ein Element auf Position current = 50
 eintragen und anschließend ein Element auf der folgenden Position
 eintragen:
 
-    current + Integer.MIN_VALUE + Integer.MIN_VALUE
+    current + Integer.MIN_VALUE + Integer.MIN_VALUE 
+
+Dies führt in der Implementierung zu keinem Fehler, da
+current + Integer.MIN_VALUE + Integer.MIN_VALUE darauf deutet, dass
+extra = Integer.MIN_VALUE + Integer.MIN_VALUE, was 0 ergibt.
+current = 50 und extra=0 ist in allen Implementierungen valide und führt
+daher zu keinem Problem. Das Problem liegt hier also nicht in der
+Methode, sondern schon bei der Variablendeklaration.
 
     import java.math.BigInteger;
     import java.util.ArrayList;
@@ -2116,6 +2138,19 @@ Das Vorhandensein eines AttackThreads gibt Ihnen einen Hinweis worauf
 Sie in Ihren Implementierungen achten sollten.
 
 Was müssen Sie noch in Ihrer Implementierung beachten?
+
+Nach dem validatePerson() check in speicherePerson() schläft der Thread
+für 3 Sekunden, bevor die Person gespeichert wird. Innerhalb dieser 3
+Sekunden ändert der Attacker nun die Felder der Person, welche nicht
+mehr validiert werden muss, da diese bereits als valide eingestuft
+wurde. Dies ist eine klassische Time of Check vs. Time of Use
+Schwachstelle. Man kann dafür sorgen, dass die Person dennoch richtig
+gespeichert wird, indem man eine Kopie des Objektes direkt bei
+Methodenaufruf erstellt und intern nur noch mit dieser Kopie arbeitet.
+Der Angreifer ändert nun zwar die Felder des person Objektes aus der
+main, aber da wir unsere, bereits validierte person verwenden, deren
+Felder der Angreifer nicht bearbeiten kann, speichern wir schlussendlich
+das Objekt mit den richtigen Feldern.
 
 Person.java
 

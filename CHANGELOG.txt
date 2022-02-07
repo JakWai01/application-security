@@ -1,3 +1,9 @@
+commit 168e1799de49d3d0d3517fe0304ef3bd6b2e882a
+Author: JakWai01 <jakob.waibel@web.de>
+Date:   Mon Feb 7 16:16:08 2022 +0100
+
+    feat: Add interpretation to secure coding
+
 commit 81ad4f0938fcb367ba63d29fc5da5374391d4c65
 Author: JakWai01 <jakob.waibel@web.de>
 Date:   Mon Feb 7 14:38:34 2022 +0100
