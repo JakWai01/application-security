@@ -2,11 +2,11 @@
 
 Notes for the Anwendungssicherheit (app security) course at HdM Stuttgart.
 
-[![Deliverance CI](https://github.com/jakwai01/appsecurity-notes/actions/workflows/deliverance.yaml/badge.svg)](https://github.com/jakwai01/appsecurity-notes/actions/workflows/deliverance.yaml)
+[![Deliverance CI](https://github.com/jakwai01/application-security/actions/workflows/deliverance.yaml/badge.svg)](https://github.com/jakwai01/application-security/actions/workflows/deliverance.yaml)
 
 ## Overview
 
-You can [view the notes on GitHub pages](https://jakwai01.github.io/appsecurity-notes/), [download them from GitHub releases](https://github.com/jakwai01/appsecurity-notes/releases/latest) or [check out the source on GitHub](https://github.com/jakwai01/appsecurity-notes).
+You can [view the notes on GitHub pages](https://jakwai01.github.io/application-security/), [download them from GitHub releases](https://github.com/jakwai01/application-security/releases/latest) or [check out the source on GitHub](https://github.com/jakwai01/application-security).
 
 ## Contributing
 
@@ -15,8 +15,8 @@ To contribute, please use the [GitHub flow](https://guides.github.com/introducti
 To build and open a note locally, run the following:
 
 ```shell
-$ git clone https://github.com/jakwai01/appsecurity-notes.git
-$ cd appsecurity-notes
+$ git clone https://github.com/jakwai01/application-security.git
+$ cd application-security
 $ ./configure
 $ export DISABLE_PDF_SLIDES=true
 $ make depend
