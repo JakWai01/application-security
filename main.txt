@@ -300,7 +300,7 @@ Minimierung der Angriffsfläche
     -   Suchfunktion, die anfällig gegen SQL-Injektion sein könnte. Dies
         könnte durch Datenvalidierung der Suchfunktion, autorisierung
         oder einem Glossar behoben werden
--   Verwandte Prinzipien:
+-   Verwandte Prinzipien
     -   “Einfachheit”
     -   “Ökonomie des Mechanismus”
 -   Aspekte zur Minimierung der Angriffsfläche
@@ -423,7 +423,7 @@ Pflichtentrennung
     -   Administratoren dürfen sich aber nicht als besonders
         privilegierte Endanwender bei der Anwendung anmelden
     -   Andernfalls könnten sie auch im Namen anderer Benutzer agieren
--   Verwandte Prinzipien:
+-   Verwandte Prinzipien
     -   “Prinzip des kleinsten Privilegs”
     -   “Prinzip der mehrstufigen Verteidigung”
     -   “Zurückhaltung beim Vertrauen”
@@ -438,7 +438,7 @@ Verlasse Dich nicht auf Sicherheit durch Verschleierung
         nicht, dass die Anwendung sicher ist
     -   Versteckte URLs, die sich durch Brute-Force-Angriffe evtl. doch
         finden lassen
--   Verwandtes Prinzip:
+-   Verwandtes Prinzip
     -   “Offener Entwurf”
 
 Einfachheit/KISS
@@ -507,7 +507,7 @@ Vollständige Vermittlung
 
 -   Prinzip
     -   Jeden Objektzugriff durch eine Berechtigungsprüfung absichern
--   Verwandte Prinzipien:
+-   Verwandte Prinzipien
     -   “Prinzip der mehrstufigen Verteidigung” (Defense in Depth)
 
 Kleinster gemeinsamer Mechanismus
@@ -545,7 +545,8 @@ Zurückhaltung bei Vertrauen
 
 Schutz der Privatssphäre
 
--   Prinzip: Schütze die Daten der Anwender
+-   Prinzip
+    -   Schütze die Daten der Anwender
 -   Rechtliche Grundlagen (Datenschutzgrundverordnung,
     Bundesdatenschutzgesetz, Landesdatenschutzgesetz)
 -   Grundsätzliche Regel: “Verbot mit Erlaubnisvorbehalt”
@@ -561,6 +562,8 @@ Offener Entwurf
     -   “Verlasse Dich nicht auf Sicherheit durch Verschleierung”
 
 Stride Flussdiagramm - Entwurfsprinzipien
+
+[Datenflussdiagramm]
 
 -   Durch Vertrauensgrenze wird “Seperation of Priviledges” erreicht.
     Außerdem wird damit “Behandle externe Systeme als Unsicher”
@@ -660,6 +663,8 @@ Verwendung von Windows Debuggern
     -   Hilfe zu einem Befehl !mona help <Befehl>
 
 Verhalten des Stacks bei einem Buffer Overflow
+
+[Stack]
 
 Vorgehen
 
