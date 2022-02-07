@@ -1992,8 +1992,6 @@ public class Validator {
 }
 ```
 
-TOOD: Add Interpretation
-
 ## Aufgabe 6: Authentisierung/Authentifizierung (3+2 = 5 Punkte)
 
 ### Grundlagen
