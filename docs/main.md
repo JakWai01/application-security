@@ -167,79 +167,79 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
 
 #### Minimierung der Angriffsfläche
 
-- Prinzip
+- **Prinzip**
   - Dem Angreifer so wenig Angriffsfläche bieten, wie möglich
   - Jedes Feature vergrößert die Angriffsfläche
-- Beispiel
+- **Beispiel**
   - Suchfunktion, die anfällig gegen SQL-Injektion sein könnte. Dies könnte durch Datenvalidierung der Suchfunktion, autorisierung oder einem Glossar behoben werden
-- Verwandte Prinzipien:
+- **Verwandte Prinzipien**
   - "Einfachheit"
   - "Ökonomie des Mechanismus"
-- Aspekte zur Minimierung der Angriffsfläche
+- **Aspekte zur Minimierung der Angriffsfläche**
   - Menge des aktuell ausgeführten Programmcodes reduzieren
   - Menge der Zugangspunkte und Schnittstellen zur Software minimieren
   - Rechte, mit denen der Programmcode laufen muss anpassen, sodass angreifer dadurch keine Vorteile oder Zugriffe auf andere Tools erhalten
 
 #### Sichere Vorbelegung
 
-- Prinzip
+- **Prinzip**
   - Anwendungen sind so auszuliefern, dass sie möglichst sicher vorkonfiguriert sind
   - Anwender können Sicherheitsmaßnahmen dann nach Bedarf reduzieren
-- Beispiel
+- **Beispiel**
   - Passwortrichtlinie
     - Sichere Vorbelegung
       - Auf Stärke Prüfen
       - Läuft ab
     - Kann bei bedarf abgestellt werden
-  - Firewall
+  - **Firewall**
     - Standardmäßig sind alle Ports geschlossen
     - Notwendige Ports werden geöffnet
-- Verwandte Prinzipien
+- **Verwandte Prinzipien**
   - "Prinzip des kleinsten Privilegs"
   - "Kleinster gemeinsamer Mechanismus"
 
 #### Prinzip des kleinsten Privilegs
 
-- Prinzip
+- **Prinzip**
   - Jede Funktion ist nur mit den minimal erforderlichen Rechten ausgestattet, unabhängig davon, ob sie intern ausgeführt wird oder aufgrund einer Benutzeranforderung
-- Privilegien können sein
+- **Privilegien können sein**
   - Zugriffsberechtigungen
   - Rechenzeit
   - Speicherplatz im Hauptspeicher oder auf Festspeichern
   - Netzwerkbandbreite
-- Beispiel
+- **Beispiel**
   - Normale Benutzer bekommen keine Administratorrechte
   - Administratoren dürfen keine fachspezifischen Berechtigungen haben
-- Verwandte Prinzipien
+- **Verwandte Prinzipien**
   - "Minimierung der Angriffsfläche"
   - "Pflichtentrennung"
 
 #### Prinzip der mehrstufigen Verteidigung
 
-- Prinzip
+- **Prinzip**
   - Es sind mehrere Sicherheitsmaßnahmen hintereinander zu verschiedenen Aspekten einzurichten
-- Hinweis
+- **Hinweis**
   - Dieses Prinzip sollte je nach Kritikalität der Daten/Prozesse angewendet werden, da es sehr aufwändig ist
-- Verwandte Prinzipien
+- **Verwandte Prinzipien**
   - "Vollständige Vermittlung"
   - "Pflichtentrennung"
-- Verteidigungsstufen
+- **Verteidigungsstufen**
   - Authentifizierung
   - Autorisierung
   - Verschlüsselung
   - Audit
-- Beispiel
+- **Beispiel**
   - Ein Fehler in der Administrationsoberfläche erlaubt nicht gleich Administratorzugang zur ganzen Anwendung, wenn Zugriffsberechtigungen für jeden Zugriff separat geprüft werden und außerdem noch alle Zugriffe protokolliert werden
 
 #### Sicheres Verhalten bei Fehlern bzw. Ausnahmen
 
-- Prinzip
+- **Prinzip**
   - Vertraulichkeit der Fehlermeldungen
   - Keine detaillierten Fehlermeldungen für den Anwender sichtbar
   - Transaktionen schlagen in Anwendungen oft aus verschiedenen Gründen fehl
   - Anwendungen können abstürzen
   - Wie die Anwendung einene solchen Fehlschlag behandelt, entscheidet darüber, ob die Anwendung sicher ist oder nicht.
-- Beispiel
+- **Beispiel**
   - Falls `codeWhichMayFail()` fehlschlägt, dann ist der Anwender automatisch Administrator. Dies ist dann offensichtlich ein Sicherheitsrisiko.
     ```java
     isAdmin = true;
@@ -250,145 +250,146 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
         log.write(ex.toString());
     }
     ```
-- Verwandte Anforderungen und Prinzipien
+- **Verwandte Anforderungen und Prinzipien**
   - Anforderungskategorie "Ausnahmebehandlung"
   - "Sichere Vorbelegung"
 
 #### Behandle externe Systeme als unsicher
 
-- Prinzip
+- **Prinzip**
   - Daten, die von externen Systemem kommen, sind zunächst einmal nicht vertrauenswürdig und müssen erst validiert werden, bevor sie verarbeitet oder dem Benutzer angezeigt werden.
-- Beispiel
+- **Beispiel**
   - Eine Online-Banking-Anwendung von Drittanwendung
   - Internes System muss Daten von externem System auf Sicherheit prüfen (e.g. nicht-negativ, in den boundaries)
-- Verwandtes Prinzip
+- **Verwandtes Prinzip**
   - "Zurückhaltung beim Vertrauen"
 
 #### Pflichtentrennung
 
-- Prinzip
+- **Prinzip**
   - Mehrere Sicherheitsebenen verwenden, die sich idealerweise gegenseitig kontrollieren
   - Einführung von Rollen, die einer höheren Vertrauensstufe angehören als normale Benutzer, hilft bei der Umsetzung
-- Beispiele
+- **Beispiele**
   - Administratoren dürfen das System verwalten e.g. hoch- und runterfahren, Passwortrichtlinien einstellen, etc.
   - Administratoren dürfen sich aber nicht als besonders privilegierte Endanwender bei der Anwendung anmelden
   - Andernfalls könnten sie auch im Namen anderer Benutzer agieren
-- Verwandte Prinzipien:
+- **Verwandte Prinzipien**
   - "Prinzip des kleinsten Privilegs"
   - "Prinzip der mehrstufigen Verteidigung"
   - "Zurückhaltung beim Vertrauen"
 
 #### Verlasse Dich nicht auf Sicherheit durch Verschleierung
 
-- Prinzip
+- **Prinzip**
   - Etwas geheim zu halten oder zu verstecken sollte nicht der einzige Sicherheitsmechanismus sein
-- Beispiel
+- **Beispiel**
   - Die Geheimhaltung des Quelltextes einer Anwendung garantiert nicht, dass die Anwendung sicher ist
   - Versteckte URLs, die sich durch Brute-Force-Angriffe evtl. doch finden lassen
-- Verwandtes Prinzip:
+- **Verwandtes Prinzip**
   - "Offener Entwurf"
 
 #### Einfachheit/KISS
 
-- Prinzip
+- **Prinzip**
   - Einfache Programme bieten weniger Angriffsfläche, alleine schon deswegen, weil dadurch Programmierfehler weniger wahrscheinlich sind
   - Vermeide daher alles was unnötig komplex oder kompliziert ist
-- Beispiele
+- **Beispiele**
   - Doppelte Negationen
   - Zu komplexe Architekturen
-- Verwandte Prinzipien
+- **Verwandte Prinzipien**
   - "Minimierung der Angriffsfläche"
   - "Ökonomie des Mechanismus"
 
 #### Behebe Sicherheitslöcher richtig
 
-- Prinzip
+- **Prinzip**
   - Erst einen Testfall für die Sicherheitslücke erstellen und implementieren
   - Fehlerursache verstehen
   - Fehler beheben und überprüfen durch Tests
-- Anmerkung
+- **Anmerkung**
   - Heutzutage oft Designpatterns
   - Fehler in Entwurfsmuster ist in allen Anwendungen zu beheben, die dieses Implemenieren
-- Beispiel
+- **Beispiel**
   - Online-Banking-Kunde kann durch veränderung des Cookies den Kontostand anderer Kunden sehen
   - Der Umgang mit Cookies wird auch in anderen Anwendungen in dieser Form eingesetzt, muss also auch verändert werden
 
 #### Eingabevalidierung/Ausgabekodierung
 
-- Prinzip 
+- **Prinzip**
   - Eingaben auf korrektheit prüfen 
   - Ausgabe kontrollieren
-- Beispiel
+- **Beispiel**
   - Angreifer kann Schadcode in Formularfeld einfügen, welcher dann auf einem anderen IT-System ausgeführt wird
   - SQL-Injection
 
 #### Sichere das schwächste Glied
 
-- Prinzip
+- **Prinzip**
   - Sicherheitsmaßnahmen sollen zuerst dort angewendet werden, wo sie am meisten erforderlich sind, nicht dort wo sie bequem implementiert werden können
-- Beispiel
+- **Beispiel**
   - Wenn eine Schachstelle A aus dem Internet ausgenutzt weden kann und eine Schwachstelle B im Intranet ausgenutzt werden kann, dann muss zuerst Schwachstelle A abgesichert werden
-- Hinweis
+- **Hinweis**
   - Zuerst Bedrohungen adressieren, die im Rahmen der Bedrohungsmodellierung das höchste Risiko ergeben haben
 
 #### Ökonomie des Mechanismus
 
-- Prinzip
+- **Prinzip**
   - Den Entwurf so einfach wie möglich halten
-- Verwandtes Prinzip
+- **Verwandtes Prinzip**
   - "Einfachheit"
 
 #### Vollständige Vermittlung
 
-- Prinzip
+- **Prinzip**
   - Jeden Objektzugriff durch eine Berechtigungsprüfung absichern
-- Verwandte Prinzipien:
+- **Verwandte Prinzipien**
   - "Prinzip der mehrstufigen Verteidigung" (Defense in Depth)
 
 #### Kleinster gemeinsamer Mechanismus
 
-- Prinzip
+- **Prinzip**
   - Minimierung der Anzahl der Mechanismen, die von Anwendern gemeinsam verwendet werden müssen
   - Je mehr Mechanismen, desto größer ist die Wahrscheinlichkeit für falschen Einsatz und falsche Konfiguration bzw. Abstimmungslücken
-- Verwandtes Prinzip
+- **Verwandtes Prinzip**
   - "Minimierung der Angriffsfläche"
   - "Einfachheit"
 
 #### Psychologische Akzeptanz
 
-- Prinzip
+- **Prinzip**
   - Sicherheitsmechanismes dürfen die Verwendung der Software nicht gravierend beeinträchtigen
-- Beispiel
+- **Beispiel**
   - Wenn zu viele Sicherheitsabfragen beantwortet werden müssen, dann werden diese nicht mehr richtig gelesen und nicht mehr ernst genommen
     - Alle Sicherheitsabfragen werden akzeptiert, d.h. mit "weiter" beantwortet ohne den Text zu lesen
     - Sicherheitsabfragen werden generell abgeschaltet
 
 #### Zurückhaltung bei Vertrauen
 
-- Prinzip
+- **Prinzip**
   - Allen Daten, die von außen kommen, ist zu misstrauen
-- Verwandte Prinzipien
+- **Verwandte Prinzipien**
   - "Behandle externe Systeme als unsicher"
   - "Pflichtentrennung"
 
 #### Schutz der Privatssphäre
 
-- Prinzip: Schütze die Daten der Anwender
-- Rechtliche Grundlagen (Datenschutzgrundverordnung, Bundesdatenschutzgesetz, Landesdatenschutzgesetz)
-- Grundsätzliche Regel: "Verbot mit Erlaubnisvorbehalt"
+- **Prinzip**
+  - Schütze die Daten der Anwender
+- **Rechtliche Grundlagen** (Datenschutzgrundverordnung, Bundesdatenschutzgesetz, Landesdatenschutzgesetz)
+- **Grundsätzliche Regel**: "Verbot mit Erlaubnisvorbehalt"
   - Verarbeitung von personenbezogenen Daten grundsätzlich verboten
   - Ausnahme: Für legitimen Zweck (Vertrag oder Gesetz)
 
 #### Offener Entwurf
 
-- Prinzip
+- **Prinzip**
   - Sicherheit sollte nicht ausschließlich auf der Gerheimhaltung des Entwurfs beruhen
-- Verwandtes Prinzip
+- **Verwandtes Prinzip**
   - "Verlasse Dich nicht auf Sicherheit durch Verschleierung"
 
 ### Stride Flussdiagramm - Entwurfsprinzipien
 
-<img src="./static/dfd.png" alt="drawing" width="600"/>
+![Datenflussdiagramm](./static/dfd.png)
 
 - Durch Vertrauensgrenze wird "Seperation of Priviledges" erreicht. Außerdem wird damit "Behandle externe Systeme als Unsicher" erreicht.
 - Nach AuthN ist die Identität vertrauenswürdig. Ob Allerdings die Anfrage an sich legitim ist wissen wir noch nicht.
@@ -457,7 +458,7 @@ int main (int argc, char** argv)
 
 ### Verhalten des Stacks bei einem Buffer Overflow
 
-<img src="./static/stack.png" alt="drawing" width="600"/>
+![Stack](./static/stack.png)
 
 ### Vorgehen
 
