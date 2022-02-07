@@ -1142,6 +1142,28 @@ http://searchengine.com?query=
 Sie suchten nach: <sript ...>...</script>
 ```
 
+DVWA:
+
+```php
+<?php
+
+header ("X-XSS-Protection: 0");
+
+// Is there any input?
+if( array_key_exists( "name", $_GET ) && $_GET[ 'name' ] != NULL ) {
+    // Feedback for end user
+    echo '<pre>Hello ' . $_GET[ 'name' ] . '</pre>';
+}
+
+?>
+```
+
+Exploit:
+
+```
+<script>alert("Hallo")</script>
+```
+
 **Persistentes Cross-Site Scripting**
 
 Skriptcode wird dauerhaft innerhalb der Anwendung gespeichert (z.B. bei Foren, Gästebüchern, MySpace)
@@ -1162,7 +1184,40 @@ alert("XSS")</script>
 Ergebnis:
 
 ```
-Tolle Seite!<script">alert("XSS")</script>
+Tolle Seite!<script>alert("XSS")</script>
+```
+
+DVWA:
+
+```php
+<?php
+
+if( isset( $_POST[ 'btnSign' ] ) ) {
+    // Get input
+    $message = trim( $_POST[ 'mtxMessage' ] );
+    $name    = trim( $_POST[ 'txtName' ] );
+
+    // Sanitize message input
+    $message = stripslashes( $message );
+    $message = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $message ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+
+    // Sanitize name input
+    $name = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $name ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+
+    // Update database
+    $query  = "INSERT INTO guestbook ( comment, name ) VALUES ( '$message', '$name' );";
+    $result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+
+    //mysql_close();
+}
+
+?>
+```
+
+Exploit: 
+
+```
+<script>alert("hello")</script>
 ```
 
 **Lokales (DOM-basiertes) Cross-Site Scripting**
@@ -1269,6 +1324,48 @@ Script mit Positivliste gegen lokales XSS
 - Vor sensiblen Aktionen erneute Authentifizierung einsetzen
 - `SameSite`-Attribut von `Set-Cookie`. Damit kann eingeschränkt werden, wann Cookies mitgesendet werden
 - Filter und Maskierungsfunktionen in PHP e.g. `htmlspecialchars()`, `htmlentities()`
+
+**DVWA-Beispiel**
+
+**Code** 
+
+```php
+<?php
+
+if( isset( $_GET[ 'Change' ] ) ) {
+    // Get input
+    $pass_new  = $_GET[ 'password_new' ];
+    $pass_conf = $_GET[ 'password_conf' ];
+
+    // Do the passwords match?
+    if( $pass_new == $pass_conf ) {
+        // They do!
+        $pass_new = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $pass_new ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+        $pass_new = md5( $pass_new );
+
+        // Update the database
+        $insert = "UPDATE `users` SET password = '$pass_new' WHERE user = '" . dvwaCurrentUser() . "';";
+        $result = mysqli_query($GLOBALS["___mysqli_ston"],  $insert ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+
+        // Feedback for the user
+        echo "<pre>Password Changed.</pre>";
+    }
+    else {
+        // Issue with passwords matching
+        echo "<pre>Passwords did not match.</pre>";
+    }
+
+    ((is_null($___mysqli_res = mysqli_close($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);
+}
+
+?>
+```
+
+**Exploit**
+
+```
+?password_new=password&password_conf=password&Change=Change
+```
 
 ### A4: Unsicherer Entwurf
 
