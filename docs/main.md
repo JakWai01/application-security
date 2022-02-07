@@ -30,7 +30,6 @@ Uni App Security Notes (c) 2022 Jakob Waibel and contributors
 SPDX-License-Identifier: AGPL-3.0
 \newpage
 
-## Aufgabe 1: Grundlagen und Schutzziele (1+3+1+1+2 = 8 Punkte)
 
 ### Was ist sichere Software?
 
@@ -1689,11 +1688,24 @@ current = 50
 extra = Integer.MAX_VALUE:
 ```
 
+Nehmen wir an, wir verwenden foldende Implementierung von `setElementToExtraPosition()`: 
+
+```java
+if (extra < 0 || current + extra > MAX) {
+	throw new IllegalArgumentException();
+}
+data.set(current + extra, element);
+```
+
+Wenn wir nun `current = 50` und `extra = Integer.MAX_VALUE` setzen, stellen wir fest, dass dies in unserer Implementierung zu einer IndexOutOfBoundsException führt. Das liegt daran, dass das Problem erst Auftritt, wenn wir `current+extra` addieren. `current+extra` overflowt in den negativen Bereich. Das wird aber noch nicht geprüft. Da `current+extra` in den negativen Bereich overflowt, wird der check `current+extra > MAX` auch zu `false` evaluiert, was dazu führt, dass die `data.set()` Methode den negativen Wert von `current+extra` bekommt und daher die `IndexOutOfBoundsException()` wirft.
+
 Was würde geschehen, wenn Sie ein Element auf Position `current = 50` eintragen und anschließend ein Element auf der folgenden Position eintragen:
 
 ```java
-current + Integer.MIN_VALUE + Integer.MIN_VALUE
+current + Integer.MIN_VALUE + Integer.MIN_VALUE 
 ```
+
+Dies führt in der Implementierung zu keinem Fehler, da `current + Integer.MIN_VALUE + Integer.MIN_VALUE` darauf deutet, dass `extra = Integer.MIN_VALUE + Integer.MIN_VALUE`, was 0 ergibt. `current = 50` und `extra=0` ist in allen Implementierungen valide und führt daher zu keinem Problem. Das Problem liegt hier also nicht in der Methode, sondern schon bei der Variablendeklaration.
 
 ```java
 import java.math.BigInteger;
@@ -1784,6 +1796,8 @@ Implementieren Sie die mit **TODO** markierten stellen
 Das Vorhandensein eines `AttackThreads` gibt Ihnen einen **Hinweis** worauf Sie in Ihren Implementierungen achten sollten.
 
 Was müssen Sie noch in Ihrer Implementierung beachten?
+
+Nach dem `validatePerson()` check in speicherePerson() schläft der Thread für 3 Sekunden, bevor die Person gespeichert wird. Innerhalb dieser 3 Sekunden ändert der Attacker nun die Felder der Person, welche nicht mehr validiert werden muss, da diese bereits als valide eingestuft wurde. Dies ist eine klassische `Time of Check vs. Time of Use` Schwachstelle. Man kann dafür sorgen, dass die Person dennoch richtig gespeichert wird, indem man eine Kopie des Objektes direkt bei Methodenaufruf erstellt und intern nur noch mit dieser Kopie arbeitet. Der Angreifer ändert nun zwar die Felder des person Objektes aus der `main`, aber da wir unsere, bereits validierte person verwenden, deren Felder der Angreifer nicht bearbeiten kann, speichern wir schlussendlich das Objekt mit den richtigen Feldern.
 
 `Person.java`
 
