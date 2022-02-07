@@ -1,3 +1,18 @@
+commit e7370fb41d7ef022fe6e4fd94c4c641b23e561f5
+Merge: f01d6ed 6537c87
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Mon Feb 7 10:34:57 2022 +0100
+
+    Merge pull request #2 from pojntfx/main
+    
+    Use correct repo link
+
+commit 6537c87a03eda8bf52034a6e6287a2a8bf79e5b0
+Author: Felix Pojtinger <felix@pojtinger.com>
+Date:   Mon Feb 7 00:16:45 2022 +0100
+
+    fix: Add correct link to repo
+
 commit f01d6ed4e2483060c5dc665baaae2f3686f11737
 Merge: c1b2069 11555ab
 Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
