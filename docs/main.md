@@ -1762,7 +1762,7 @@ List<String> data = new ArrayList<String>(MAX);
 Dabei ist **MAX** folgendermaßen definiert:
 
 ```java
-private static fional int MAX = 100;
+private static final int MAX = 100;
 ```
 
 Eine Methode mit der untenstehenden Signatur soll einen **Wert an einer bestimmten Position in der Datenstruktur `data` eintragen**
