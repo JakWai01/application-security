@@ -2143,6 +2143,12 @@ public class Validator {
 
 - Sammlung von Spezifikationen für den Tokenbasierten Zugriff auf Ressourcen über HTTP
 
+**Einfach erklärt**
+
+Mit Hilfe von OAuth2 können **Webservices auf Ressourcen zugreifen, ohne dass Benutzernamen und Passwort offenzulegen** sind. 
+
+Beispiel: Pinterest möchte Kontakte aus deiner Facebook-Freundesliste importieren. Dafür benötigt Pinterest Zugriff auf den jeweiligen Account und die dort hinterlegten Informationen. Du würdest Pinterest aber nie deine Login-Daten für Facebook geben - schließlich hätte Pinterest dann jederzeit uneingeschränkten Zugang. Mit Hilfe von OAuth2 kannst du Pinterest erlauben die Daten bei der Facebook API abzufragen ohne mit Ihnen deine Login-Daten zu teilen. 
+
 **Rollen**
 
 | Rolle                                                         | Beschreibung                                                                                                                                                      |
