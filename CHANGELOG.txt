@@ -1,12 +1,3 @@
-commit 62b18f1239d5b40dff2c0c3fe40c8db571900de9
-Merge: bdb7814 b12bdfe
-Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
-Date:   Tue Feb 8 14:04:40 2022 +0100
-
-    Merge pull request #3 from LarsFlieger/typo-fix
-    
-    Fix typo
-
 commit bdb78149b4bffdf4149661c01ad717a6350fd6c8
 Merge: 05d5b14 28c33cc
 Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
@@ -21,12 +12,6 @@ Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
 Date:   Tue Feb 8 12:49:17 2022 +0100
 
     Rework IntegerOverflow
-
-commit b12bdfe0b82f1bd8376840164cbfafd98fc0e115
-Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
-Date:   Tue Feb 8 12:42:07 2022 +0100
-
-    Fix typo
 
 commit 05d5b14c0b8c4fec25fb039eba24d41bca8dbb9d
 Author: JakWai01 <jakob.waibel@web.de>
