@@ -2154,6 +2154,13 @@ public class Validator {
 
 **Standardprotokoll**
 
+1. Der Client fordert entweder direkt oder über den Authorization Server eine **Autorisierung** vom Resource Owner an.
+2. Der Resource Owner erteilt eine **Autorisierungsgenehmigung** mittels eines Genehmigungsprozesses.
+3. Der Client fordert mit der Autorisierungsgenehmigung einen **Access-Token** vom Authorization Server an.
+4. Der Authorization Server authentifiziert den Client anhand seiner Autorisierungsgenehmigung und stellt einen Access-Token aus.
+5. Der Client benutzt den Access-Token, um die relevanten **geschützten Daten** des Resource Owners beim Resource Server anzufragen.
+6. Der Resource Server authentifiziert den Client anhand seines Access-Tokens und stellt die gewünschten Daten zur Verfügung.
+
 ![Standardprotokoll](./static/standardprotokoll.png)
 
 ![Kategorien](./static/category.png)
