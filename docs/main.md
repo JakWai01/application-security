@@ -2145,7 +2145,12 @@ public class Validator {
 
 **Rollen**
 
-![Rollen](./static/rollen.png)
+| Rolle                                                         | Beschreibung                                                                                                                                                      |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Resource Owner (RO) (User, Nutzer)                            | Eine Entität, die einem Client Zugriff auf seine geschützten Daten (auch: Ressourcen) gewährt.                                                                    |
+| Resource Server (RS) (z.B Dienst, Mail Server)                | Ein Server, auf dem die geschützten Daten des Resource Owners gespeichert sind.                                                                                   |
+| Client (Dritter, Third-Party)                                 | Eine Desktop-, Web- oder Mobile-Anwendung, die auf die geschützten Daten des Resource Owners zugreifen will.                                                      |
+| Authorization Server (Nutzer anmelden um zugriff zu erhalten) | Ein Server, der den Resource Owner authentifiziert und einen zeitlich begrenzten Access-Token für einen von ihm definierten Anwendungsbereich (scope) ausstellt.  |
 
 **Standardprotokoll**
 
