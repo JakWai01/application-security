@@ -2149,6 +2149,8 @@ Mit Hilfe von OAuth2 können **Webservices auf Ressourcen zugreifen, ohne dass B
 
 Beispiel: Pinterest möchte Kontakte aus deiner Facebook-Freundesliste importieren. Dafür benötigt Pinterest Zugriff auf den jeweiligen Account und die dort hinterlegten Informationen. Du würdest Pinterest aber nie deine Login-Daten für Facebook geben - schließlich hätte Pinterest dann jederzeit uneingeschränkten Zugang. Mit Hilfe von OAuth2 kannst du Pinterest erlauben die Daten bei der Facebook API abzufragen ohne mit Ihnen deine Login-Daten zu teilen. 
 
+Resource Owner: Du (dir gehört dein Facebook Account), Resource Server: Facebook (dort liegt dein Freundesliste), Client: Pinterest (möchte gerne deine Freundesliste sehen), Authorization: Facebook (Mit deinen Login Daten meldest du dich bei Facebook an "Autorisierungsgenehmigung")
+
 **Rollen**
 
 | Rolle                                                         | Beschreibung                                                                                                                                                      |
