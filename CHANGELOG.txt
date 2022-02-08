@@ -1,3 +1,12 @@
+commit 5d4319d8d386979846f58ba6d6b54161370f868e
+Merge: 81cc063 4ae4251
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Tue Feb 8 16:41:52 2022 +0100
+
+    Merge pull request #6 from LarsFlieger/ref/oauth2
+    
+    Ref/oauth2
+
 commit 81cc063e7d7f4a7b76d4a211e02d337bd04cb4dc
 Merge: 62b18f1 1c035b2
 Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
@@ -6,6 +15,12 @@ Date:   Tue Feb 8 16:39:41 2022 +0100
     Merge pull request #7 from LarsFlieger/ref/short-document
     
     Ref/short document
+
+commit 4ae42510dd00f956017f0a8941cffdfe99430a5f
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Tue Feb 8 16:38:36 2022 +0100
+
+    fix: Typo
 
 commit 1c035b2a26544c92123a76b0cb6a9a3b65241524
 Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
@@ -19,6 +34,42 @@ Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
 Date:   Tue Feb 8 16:16:42 2022 +0100
 
     Sort code example
+
+commit 69ebe6be060ac88b7b5e5c6807ea1484192cdb20
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Tue Feb 8 15:49:52 2022 +0100
+
+    Add roles to improve example!
+
+commit 0fe7677bc54db3f75182174c63627e5fd7149cad
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Tue Feb 8 15:46:18 2022 +0100
+
+    Add simple example
+
+commit c7439431c368b936f351998edc5c6e4ae5756522
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Tue Feb 8 15:39:11 2022 +0100
+
+    Add examples
+
+commit 9cf34df76214e91077feda96caafae59fbd68e1e
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Tue Feb 8 15:30:43 2022 +0100
+
+    Update headline
+
+commit 60120b63b7e71efae72e71999ac7f102f019c67a
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Tue Feb 8 15:30:24 2022 +0100
+
+    Add description to Protocol Flow
+
+commit 8fb11969ee97f215d8ba96110ca82d820b682fc4
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Tue Feb 8 15:19:26 2022 +0100
+
+    Update roles in OAuth 2
 
 commit 62b18f1239d5b40dff2c0c3fe40c8db571900de9
 Merge: bdb7814 b12bdfe
