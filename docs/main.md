@@ -2155,7 +2155,7 @@ public class Validator {
 **Protokollablauf**
 
 1. Der Client fordert entweder direkt oder über den Authorization Server eine **Autorisierung** vom Resource Owner an.
-2. Der Resource Owner erteilt eine **Autorisierungsgenehmigung** mittels eines Genehmigungsprozesses.
+2. Der Resource Owner erteilt eine **Autorisierungsgenehmigung** (z.B.: als Autorisierungs-Code) mittels eines Genehmigungsprozesses (z.B.: Passwort Login). 
 3. Der Client fordert mit der Autorisierungsgenehmigung einen **Access-Token** vom Authorization Server an.
 4. Der Authorization Server authentifiziert den Client anhand seiner Autorisierungsgenehmigung und stellt einen Access-Token aus.
 5. Der Client benutzt den Access-Token, um die relevanten **geschützten Daten** des Resource Owners beim Resource Server anzufragen.
