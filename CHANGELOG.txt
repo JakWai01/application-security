@@ -1,3 +1,9 @@
+commit 05d5b14c0b8c4fec25fb039eba24d41bca8dbb9d
+Author: JakWai01 <jakob.waibel@web.de>
+Date:   Tue Feb 8 11:56:44 2022 +0100
+
+    fix: nasm_shell
+
 commit 36887b15009678d1a7904fb07054770aee8e3f44
 Author: JakWai01 <jakob.waibel@web.de>
 Date:   Mon Feb 7 21:02:29 2022 +0100
