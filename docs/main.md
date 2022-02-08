@@ -1811,9 +1811,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Hello world!
- */
 public class IntegerOverflow {
 	private static final int MAX = 100;
 
@@ -1822,10 +1819,8 @@ public class IntegerOverflow {
 
 	public IntegerOverflow() {
 		current = 0;
-		// Reserviert speicher bis 100
-		data = new ArrayList<String>(MAX);
-		// Fill Array
-		for (int i = 0; i < MAX; i++) {
+		data = new ArrayList<String>(MAX);  // Reserviert speicher bis 100
+		for (int i = 0; i < MAX; i++) {  // Fill Array
 			data.add(i, "");
 		}
 	}
@@ -1858,9 +1853,7 @@ public class IntegerOverflow {
 		System.out.println(io.data.toString());
 	}
 
-	/**
-	 * 1. Problem when add value to current we could overflow (get negative value)
-	 */
+  // 1. Problem when add value to current we could overflow (get negative value)
 	private void setElementToExtraPosition(int extra, String element) {
 		if (extra < 0 || current + extra > MAX)
 			throw new IllegalArgumentException();
@@ -1868,9 +1861,7 @@ public class IntegerOverflow {
 		data.set(current + extra, element);
 	}
 
-	/**
-	 * Solve Problem 1, but still can go wrong
-	 */
+  // Solve Problem 1, but still can go wrong
 	private void setElementToExtraPositionMoreSecure(int extra, String element) {
 		if (extra < 0 || current > MAX - extra)
 			throw new IllegalArgumentException();
@@ -1878,9 +1869,7 @@ public class IntegerOverflow {
 		data.set(current + extra, element);
 	}
 
-	/**
-	 * Securest Version but has issues with performance
-	 */
+  // Securest Version but has issues with performance
 	private void setElementToExtraPositionSecure(int extra, String element) {
 		BigInteger currentBig = BigInteger.valueOf(current);
 		BigInteger maxBig = BigInteger.valueOf(MAX);
