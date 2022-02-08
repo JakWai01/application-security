@@ -2152,7 +2152,7 @@ public class Validator {
 | Client (Dritter, Third-Party)                                 | Eine Desktop-, Web- oder Mobile-Anwendung, die auf die geschützten Daten des Resource Owners zugreifen will.                                                      |
 | Authorization Server (Nutzer anmelden um zugriff zu erhalten) | Ein Server, der den Resource Owner authentifiziert und einen zeitlich begrenzten Access-Token für einen von ihm definierten Anwendungsbereich (scope) ausstellt.  |
 
-**Standardprotokoll**
+**Protokollablauf**
 
 1. Der Client fordert entweder direkt oder über den Authorization Server eine **Autorisierung** vom Resource Owner an.
 2. Der Resource Owner erteilt eine **Autorisierungsgenehmigung** mittels eines Genehmigungsprozesses.
