@@ -2135,11 +2135,31 @@ public class Validator {
 
 - Sammlung von Spezifikationen für den Tokenbasierten Zugriff auf Ressourcen über HTTP
 
+**Einfach erklärt**
+
+Mit Hilfe von OAuth2 können **Webservices auf Ressourcen zugreifen, ohne dass Benutzernamen und Passwort offenzulegen** sind. 
+
+Beispiel: Pinterest möchte Kontakte aus deiner Facebook-Freundesliste importieren. Dafür benötigt Pinterest Zugriff auf den jeweiligen Account und die dort hinterlegten Informationen. Du würdest Pinterest aber nie deine Login-Daten für Facebook geben - schließlich hätte Pinterest dann jederzeit uneingeschränkten Zugang. Mit Hilfe von OAuth2 kannst du Pinterest erlauben die Daten bei der Facebook API abzufragen ohne mit Ihnen deine Login-Daten zu teilen. 
+
+Resource Owner: Du (dir gehört dein Facebook Account), Resource Server: Facebook (dort liegt dein Freundesliste), Client: Pinterest (möchte gerne deine Freundesliste sehen), Authorization Server: Facebook (Mit deinen Login Daten meldest du dich bei Facebook an "Autorisierungsgenehmigung")
+
 **Rollen**
 
-![Rollen](./static/rollen.png)
+| Rolle                                                         | Beschreibung                                                                                                                                                      |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Resource Owner (RO) (User, Nutzer)                            | Eine Entität, die einem Client Zugriff auf seine geschützten Daten (auch: Ressourcen) gewährt.                                                                    |
+| Resource Server (RS) (z.B Dienst, Mail Server)                | Ein Server, auf dem die geschützten Daten des Resource Owners gespeichert sind.                                                                                   |
+| Client (Dritter, Third-Party)                                 | Eine Desktop-, Web- oder Mobile-Anwendung, die auf die geschützten Daten des Resource Owners zugreifen will.                                                      |
+| Authorization Server (Nutzer anmelden um zugriff zu erhalten) | Ein Server, der den Resource Owner authentifiziert und einen zeitlich begrenzten Access-Token für einen von ihm definierten Anwendungsbereich (scope) ausstellt.  |
 
-**Standardprotokoll**
+**Protokollablauf**
+
+1. Der Client fordert entweder direkt oder über den Authorization Server eine **Autorisierung** vom Resource Owner an.
+2. Der Resource Owner erteilt eine **Autorisierungsgenehmigung** (z.B.: als Autorisierungs-Code) mittels eines Genehmigungsprozesses (z.B.: Passwort Login). 
+3. Der Client fordert mit der Autorisierungsgenehmigung einen **Access-Token** vom Authorization Server an.
+4. Der Authorization Server authentifiziert den Client anhand seiner Autorisierungsgenehmigung und stellt einen Access-Token aus.
+5. Der Client benutzt den Access-Token, um die relevanten **geschützten Daten** des Resource Owners beim Resource Server anzufragen.
+6. Der Resource Server authentifiziert den Client anhand seines Access-Tokens und stellt die gewünschten Daten zur Verfügung.
 
 ![Standardprotokoll](./static/standardprotokoll.png)
 
