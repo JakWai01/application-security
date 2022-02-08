@@ -1805,75 +1805,82 @@ current + Integer.MIN_VALUE + Integer.MIN_VALUE
 Dies führt in der Implementierung zu keinem Fehler, da `current + Integer.MIN_VALUE + Integer.MIN_VALUE` darauf deutet, dass `extra = Integer.MIN_VALUE + Integer.MIN_VALUE`, was 0 ergibt. `current = 50` und `extra=0` ist in allen Implementierungen valide und führt daher zu keinem Problem. Das Problem liegt hier also nicht in der Methode, sondern schon bei der Variablendeklaration.
 
 ```java
+package intoverflow;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Hello world!
+ */
 public class IntegerOverflow {
+	private static final int MAX = 100;
 
-	private static final int MAX = 100; // Integer.MAX_VALUE + 1
-
-	private int current;
 	private List<String> data;
+	private int current;
 
 	public IntegerOverflow() {
 		current = 0;
+		// Reserviert speicher bis 100
 		data = new ArrayList<String>(MAX);
+		// Fill Array
 		for (int i = 0; i < MAX; i++) {
-			data.add(i,  "");
+			data.add(i, "");
 		}
 	}
 
 	public static void main(String[] args) {
 		IntegerOverflow io = new IntegerOverflow();
-		io.process();
+		int extra = 0;
+
+		// Standard Test
+		extra = 10;
+		io.setElementToExtraPosition(extra, "10");
+		io.setElementToExtraPosition(extra, "20");
+
+		// Index out of Bounds
+		io.current = 50;
+		extra = Integer.MAX_VALUE;
+		io.setElementToExtraPosition(extra, "20"); // -2147483599 out of bounds for length 100
+		io.setElementToExtraPositionMoreSecure(extra, "20"); // Illegal Argument Exception
+		io.setElementToExtraPositionSecure(extra, "20"); // Illegal Argument Exception
+
+		// Works
+		io.current = 50;
+		extra = Integer.MIN_VALUE + Integer.MIN_VALUE; // 0
+		io.setElementToExtraPosition(extra, "20"); // Works because Integer.MIN_VALUE + Integer.MIN_VALUE --> 0
+		io.setElementToExtraPositionSecure(extra, "20"); // Works because Integer.MIN_VALUE + Integer.MIN_VALUE --> 0
+
+		// Solves issue when parameter overflow
+		extra = Math.addExact(Integer.MIN_VALUE, Integer.MIN_VALUE);
+
+		System.out.println(io.data.toString());
 	}
 
-	private void process() {
-		System.out.println("Liste im Initialzustand:");
-		System.out.println(data.toString());
-
-		current = 50; // Integer.MAX_VALUE
-
-		data.set(current, "Alter Wert");
-		System.out.println("\nListe nach Setzen eines Wertes auf Position current = " + current);
-		System.out.println(data.toString());
-
-		int extra = Integer.MAX_VALUE + Math.abs(Integer.MIN_VALUE) + 1;
-//		int extra = Math.abs(Integer.MIN_VALUE) + 1;
-//		int extra = Integer.MAX_VALUE;
-//		System.out.println("\nBerechnung des extra-Index durch Integer.MAX_VALUE + Math.abs(Integer.MIN_VALUE) + 1 = " + extra);
-		System.out.println("\nextra-Index: = " + extra);
-
-		setElementToExtraPosition(extra, "Neuer falscher Wert");
-		System.out.println("\nListe nach Setzen eines Wertes auf Position current (" + current + ") + extra (" + extra + ") = " + (current + extra));
-		System.out.println(data.toString());
-
-//		setElementToExtraPositionMoreSecure(extra, "Neuer Wert More Secure");
-//		System.out.println("\nListe nach Setzen eines Wertes auf Position current (" + current + ") + extra (" + extra + ") = " + (current + extra));
-//		System.out.println(data.toString());
-//
-//		setElementToExtraPositionSecure(extra, "Neuer Wert Secure");
-//		System.out.println("\nListe nach Setzen eines Wertes auf Position current (" + current + ") + extra (" + extra + ") = " + (current + extra));
-//		System.out.println(data.toString());
-
-	}
-
+	/**
+	 * 1. Problem when add value to current we could overflow (get negative value)
+	 */
 	private void setElementToExtraPosition(int extra, String element) {
-//		System.out.println("current + extra = " + (current + extra));
-		if (extra < 0 || current + extra > MAX) {
+		if (extra < 0 || current + extra > MAX)
 			throw new IllegalArgumentException();
-		}
+
 		data.set(current + extra, element);
 	}
 
+	/**
+	 * Solve Problem 1, but still can go wrong
+	 */
 	private void setElementToExtraPositionMoreSecure(int extra, String element) {
-		if (extra < 0 || current > MAX - extra) {
+		if (extra < 0 || current > MAX - extra)
 			throw new IllegalArgumentException();
-		}
+
 		data.set(current + extra, element);
 	}
 
+	/**
+	 * Securest Version but has issues with performance
+	 */
 	private void setElementToExtraPositionSecure(int extra, String element) {
 		BigInteger currentBig = BigInteger.valueOf(current);
 		BigInteger maxBig = BigInteger.valueOf(MAX);
