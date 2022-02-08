@@ -491,7 +491,7 @@ int main (int argc, char** argv)
 
 - Die Adresse des ESP kann sich bei jeder Ausführung des Programms ändern
 - Weitere Module (e.g. DLLs), welche kein ASLR (Address Space Layout Randomization) verwenden, nach `JMP ESP` oder `PUSH ESP`/`RETN` Anweisungen durchsuchen
-- Mit Hilfe der `nasm_shell` können Befehle in Modulen lokalisiert werden
+- Mit Hilfe der `nasm_shell` können Assembly in die jeweiligen Opcodes übersetzen 
 
 ```shell
 /usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
