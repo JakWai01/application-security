@@ -1,3 +1,18 @@
+commit 3157855370a66847001f4bc88c4028db69934a9b
+Merge: 5d4319d f8217ef
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Wed Feb 9 02:28:21 2022 +0100
+
+    Merge pull request #8 from coffemakingtoaster/patch-1
+    
+    Typos and clarifications
+
+commit f8217eff8bf66f137582e68bf29a838bcce90257
+Author: Max <48368581+coffemakingtoaster@users.noreply.github.com>
+Date:   Wed Feb 9 00:19:17 2022 +0100
+
+    Typos and clarifications
+
 commit 5d4319d8d386979846f58ba6d6b54161370f868e
 Merge: 81cc063 4ae4251
 Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
