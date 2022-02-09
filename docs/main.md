@@ -1858,7 +1858,7 @@ public class IntegerOverflow {
 
   // 1. Problem when add value to current we could overflow (get negative value)
 	private void setElementToExtraPosition(int extra, String element) {
-		if (extra < 0 || current + extra > MAX)
+		if (extra < 0 || current + extra > MAX - 1)
 			throw new IllegalArgumentException();
 
 		data.set(current + extra, element);
@@ -1866,7 +1866,7 @@ public class IntegerOverflow {
 
   // Solves Problem
 	private void setElementToExtraPositionMoreSecure(int extra, String element) {
-		if (extra < 0 || current > MAX - extra)
+		if (extra < 0 || current > MAX - 1 - extra)
 			throw new IllegalArgumentException();
 
 		data.set(current + extra, element);
@@ -1875,7 +1875,7 @@ public class IntegerOverflow {
   // If performance is not a particular issue, a verbose approach is to use arbitrary sized integers:
 	private void setElementToExtraPositionSecure(int extra, String element) {
 		BigInteger currentBig = BigInteger.valueOf(current);
-		BigInteger maxBig = BigInteger.valueOf(MAX);
+		BigInteger maxBig = BigInteger.valueOf(MAX - 1);
 		BigInteger extraBig = BigInteger.valueOf(extra);
 		if (extra < 0 || currentBig.add(extraBig).compareTo(maxBig) > 0) {
 			throw new IllegalArgumentException();
