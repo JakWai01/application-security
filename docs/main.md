@@ -1864,7 +1864,7 @@ public class IntegerOverflow {
 		data.set(current + extra, element);
 	}
 
-  // Solve Problem 1, but still can go wrong
+  // Solves Problem
 	private void setElementToExtraPositionMoreSecure(int extra, String element) {
 		if (extra < 0 || current > MAX - extra)
 			throw new IllegalArgumentException();
@@ -1872,7 +1872,7 @@ public class IntegerOverflow {
 		data.set(current + extra, element);
 	}
 
-  // Securest Version but has issues with performance
+  // If performance is not a particular issue, a verbose approach is to use arbitrary sized integers:
 	private void setElementToExtraPositionSecure(int extra, String element) {
 		BigInteger currentBig = BigInteger.valueOf(current);
 		BigInteger maxBig = BigInteger.valueOf(MAX);
