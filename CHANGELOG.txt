@@ -1,3 +1,24 @@
+commit e0a6b175bf52058f603f2f23d1cf21e235838852
+Merge: 3157855 12d5769
+Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
+Date:   Wed Feb 9 21:12:00 2022 +0100
+
+    Merge pull request #9 from LarsFlieger/bug/fix-wrong-comment
+    
+    Fix wrong comments in 6
+
+commit 12d576904564dad68ac78a33a477094a0dbf958a
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Wed Feb 9 20:33:20 2022 +0100
+
+    Fix issue with validation
+
+commit 3199df3ec274071f90a006e6d5c484de15c75bc5
+Author: Michael <47084064+LarsFlieger@users.noreply.github.com>
+Date:   Wed Feb 9 12:41:50 2022 +0100
+
+    Fix wrong comments in 6
+
 commit 3157855370a66847001f4bc88c4028db69934a9b
 Merge: 5d4319d f8217ef
 Author: Jakob Waibel <59575534+JakWai01@users.noreply.github.com>
