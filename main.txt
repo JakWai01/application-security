@@ -1339,7 +1339,7 @@ Gegenmaßnahmen
     können
 
 -   Web Application Firewalls e.g. herausfiltern gefählicher Zeichen wie
-    e.g.  " ’ oder ;
+    e.g.  ” ’ oder ;
 
 -   Durchgängige Server-seitige Eingabevalidierung
 
